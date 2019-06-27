@@ -38,8 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 'django.contrib.staticfiles'
+    'social_django',
     'homepage',
+    'login',
 ]
+
+
+
+#add this by author to use social
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +69,7 @@ ROOT_URLCONF = 'robo_adviser.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,4 +137,27 @@ STATICFILES_DIRS=[
 
     os.path.join(BASE_DIR, "static"),
 
+]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'login/logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+
+# key and secret for facebook auth
+SOCIAL_AUTH_FACEBOOK_KEY = "615768775596572" # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "3690eb1d4cde1a77e03e00d5eefa7a52"  # App Secret
+
+# settings for facebook auth
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']  # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {  # add this
+    'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
 ]
