@@ -1,0 +1,22 @@
+  <!-- templates/base.html -->
+{% extends 'base.html' %}
+  {% load static %}
+  {% block contentInHead %}
+        <title>Welcome dude </title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  {% endblock %}
+
+  {% block contentInBody %}
+        <div class="container-fluid">
+            <div>
+                <h1 class="text-white text-center">
+                    {% block title %}
+                    {% endblock %}
+                </h1>
+                <div class="card p-5">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+  {% endblock %}
