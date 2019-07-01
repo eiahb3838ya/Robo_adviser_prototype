@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'social_django',
     'homepage',
     'login',
+    'questionnaire',
 ]
 
 
@@ -53,7 +54,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 
     'social_core.backends.facebook.FacebookOAuth2',
-    # 'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.github.GithubOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     # 'social_core.backends.twitter.TwitterOAuth',
 ]
@@ -166,3 +167,9 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  # add this
     ('picture', 'picture'),
     ('link', 'profile_url'),
 ]
+
+SOCIAL_AUTH_GITHUB_KEY = "bfd433a84195451d2d98"
+SOCIAL_AUTH_GITHUB_SECRET = "9997b7688aa35b842f2a37b8dc087d185a4c21df"
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '977741391187-n11cl8okhlns1ur2llrusfcdi8lm0r7i.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'RKVklupPeowj3m4o6ePIkMNH' # Google Consumer Secret

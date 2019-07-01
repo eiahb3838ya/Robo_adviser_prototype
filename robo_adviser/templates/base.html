@@ -45,6 +45,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
                 </li>
+
               </ul>
               <a class="btn btn-primary" href="{% url 'login' %}">Sign In</a>
             </div>
@@ -57,5 +58,11 @@
 
 
     {% endblock %}
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
     </body>
     </html>
