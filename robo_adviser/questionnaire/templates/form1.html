@@ -1,11 +1,17 @@
 {% extends "questionnaire_base.html" %}
-{% load static %}
+
 
 {% block questionnaireContent %}
 <div class="container">
-    <form name='myform' action="/" method="get">
-        <label for="user_name">YOUR NAME</label>
-        <input id="user_name" type="text" name="user_name">
+    <form name='myform' action= "{% url 'adviser:start' %}" method="GET">
+        <label for="mypicker">Pick a stock bro</label>
+        <select name="mypicker" id="mypicker" >
+            <option >2330.TW</option>
+            <option >2207.TW</option>
+            <option >0050.TW</option>
+        </select>
+
+
         <input type="submit" value="enter">
         <input type="reset" value="reset">
     </form>

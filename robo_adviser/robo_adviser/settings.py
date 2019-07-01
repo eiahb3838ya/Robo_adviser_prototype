@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'homepage',
     'login',
     'questionnaire',
+    'adviser'
 ]
 
 
