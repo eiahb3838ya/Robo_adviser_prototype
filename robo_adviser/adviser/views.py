@@ -35,3 +35,7 @@ def strategy_smawma(request):
     df,count,acmroi,winnum,winvar=SMAWMA.main(target_price_df,count,acmroi,winrate,winvar)
 
     return(HttpResponse(df.to_html()))
+
+def debuger_result1(request):
+    values = request.GET.getlist(u'target_strategy')
+    return (render(request, 'result1.html', locals()))

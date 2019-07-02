@@ -1,0 +1,78 @@
+{% extends "questionnaire_base.html" %}
+{% load static %}
+
+{% block contentInHead %}
+      <!-- Custom styles for this template -->
+    <link href="{% static 'css/responsive_table_input_matrix.css'%}" rel="stylesheet">
+    <link href="{% static 'css/awesome_bootstrap_checkbox.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block questionnaireContent %}
+<div class="container">
+    <h1>Responsive Table Input Matrix</h1>
+
+<h3>Permissions</h3>
+<form class="checkbox-success" name='tablefform' action= "{% url 'adviser:debuger_result1' %}" method="GET">
+        <table class="table table-hover  ">
+            <thead>
+            <tr>
+                <th></th>
+                <th>strategy_a</th>
+                <th>strategy_b</th>
+                <th>strategy_c</th>
+                <th>strategy_d</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>0050.TW</td>
+                <div class="form-check">
+                  <td><input class="form-check"  type="checkbox" name="target_strategy" value="0050.TW_a"></td>
+                </div>
+<!--                <td><input class="form-check-input" type="checkbox" name="target_strategy" value="0050.TW_a"></td>-->
+                <td><input type="checkbox" name="target_strategy" value="0050.TW_b"></td>
+                <td><input type="checkbox" name="target_strategy" value="0050.TW_c"></td>
+                <td><input type="checkbox" name="target_strategy" value="0050.TW_d"></td>
+
+            </tr>
+            <tr>
+                <td>2330.TW</td>
+                <td><input type="checkbox" name="target_strategy" value="2330.TW_a"></td>
+                <td><input type="checkbox" name="target_strategy" value="2330.TW_b"></td>
+                <td><input type="checkbox" name="target_strategy" value="2330.TW_c"></td>
+                <td><input type="checkbox" name="target_strategy" value="2330.TW_d"></td>
+
+            </tr>
+            <tr>
+                <td>2207.TW</td>
+                <td><input type="checkbox" name="target_strategy" value="2207.TW_a"></td>
+                <td><input type="checkbox" name="target_strategy" value="2207.TW_b"></td>
+                <td><input type="checkbox" name="target_strategy" value="2207.TW_c"></td>
+                <td><input type="checkbox" name="target_strategy" value="2207.TW_d"></td>
+
+            </tr>
+            <tr>
+                <td>2103.TW</td>
+                <td><input type="checkbox" name="target_strategy" value="2103.TW_a"></td>
+                <td><input type="checkbox" name="target_strategy" value="2103.TW_b"></td>
+                <td><input type="checkbox" name="target_strategy" value="2103.TW_c"></td>
+                <td><input type="checkbox" name="target_strategy" value="2103.TW_d"></td>
+
+            </tr>
+            <tr>
+                <td>2305.TW</td>
+                <td><input type="checkbox" name="target_strategy" value="2305.TW_a"></td>
+                <td><input type="checkbox" name="target_strategy" value="2305.TW_b"></td>
+                <td><input type="checkbox" name="target_strategy" value="2305.TW_c"></td>
+                <td><input type="checkbox" name="target_strategy" value="2305.TW_d"></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="enter">
+        <input type="reset" value="reset">
+</form>
+</div>
+
+
+{% endblock %}
