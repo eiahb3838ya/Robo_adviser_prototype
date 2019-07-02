@@ -1,10 +1,27 @@
 from django.shortcuts import render,HttpResponse
-from .indicators_factory import data_generator,SMAWMA
+from .indicators_factory import data_generator,SMAWMA,BBandMA
 # Create your views here.
 
 def start(request):
+    selected_stock = request.GET['stockpicker']
+    stock_options=["2330.TW", "0050.TW", "2207.TW"]
+    return(render(request,'enter_adviser.html',locals()))
+
+def strategy_bbandma(request):
     try:
-        user_picked=request.GET['mypicker']
+        user_picked = request.GET['stockpicker']
+    except:
+        print("rrrrrr")
+    # get the history price with yahoo finance
+    target_price_df = data_generator.get_history_data(user_picked)
+    # call BBand
+    df, count, acmroi, winnum, winfact = BBandMA.main(target_price_df)
+
+    return (HttpResponse(df.to_html()))
+
+def strategy_smawma(request):
+    try:
+        user_picked = request.GET['stockpicker']
     except:
         print("rrrrrr")
     str1=""
@@ -15,7 +32,6 @@ def start(request):
     # get the history price with yahoo finance
     target_price_df = data_generator.get_history_data(user_picked)
     # call smawma
-    df,count,acmroi,winrate,winvar=SMAWMA.main(target_price_df,count,acmroi,winrate,winvar)
+    df,count,acmroi,winnum,winvar=SMAWMA.main(target_price_df,count,acmroi,winrate,winvar)
 
     return(HttpResponse(df.to_html()))
-    # return(render(request,'result1.html',locals()))

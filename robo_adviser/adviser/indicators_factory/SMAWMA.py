@@ -2,22 +2,9 @@ import pandas as pd
 import numpy as np
 import datetime as dt
 import talib
+from .data_generator import roical,winfactor
 
 
-def roical(buyprice, sellprice, winRate):
-    roi = (float(sellprice)-float(buyprice))/float(buyprice)
-    if roi>0:
-        winRate +=1
-    return(roi,winRate)
-
-
-def winfactor(buyprice, sellprice, loss, win):
-    payoff = float(sellprice)-float(buyprice)
-    if payoff >=0:
-        win +=payoff
-    else:
-        loss-=payoff
-    return(loss,win)
 
 
 def main(df, count, acmroi, winrate, winvar):
