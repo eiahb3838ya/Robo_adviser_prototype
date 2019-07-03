@@ -5,17 +5,27 @@
 <div class="container">
     <form name='myform'  method="GET">
         <label for="stockpicker">Pick a stock bro</label>
-        <select name="stockpicker" id="stockpicker" >
+        <select name="stockpicker" id="stockpicker" disabled>
             <option value= "{{selected_stock}}" selected>{{selected_stock}}</option>
             {% for a_stock in stock_options %}
             <option value={{ a_stock }}>{{ a_stock }}</option>
             {% endfor %}
         </select>
-        <button type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
-        <button type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
-        <input type="reset" value="reset">
+        <button type="submit" name="action" class="btn btn-primary" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
+        <button type="submit" name="action" class="btn btn-primary" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
+        <button type="button" id= "reset-button" class="btn" value="reset">reset</button>
     </form>
 </div>
 
+
+{% endblock %}
+{% block contentJS %}
+
+<script>
+    $("#reset-button").click(function() {
+        $("#stockpicker").attr("disabled",false);
+    });
+
+ </script>
 
 {% endblock %}
