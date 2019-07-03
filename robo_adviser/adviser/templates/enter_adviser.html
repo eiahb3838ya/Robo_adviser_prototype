@@ -11,11 +11,22 @@
             <option value={{ a_stock }}>{{ a_stock }}</option>
             {% endfor %}
         </select>
-        <button type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
-        <button type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
-        <input type="reset" value="reset">
+        <button class= "btn" type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
+        <button class= "btn"type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
+        <input id = "reset_btn" class= "btn" type="reset" value="reset">
     </form>
 </div>
 
 
+{% endblock %}
+{% block contentJS %}
+    <script>
+        $("#reset_btn").click(function(){
+          $("#stockpicker").attr("disabled",false);
+        });
+        //solve the thing that Disabled form elements are not sent by the form.
+        //$(':disabled').each(function(){
+        //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');
+        //});
+    </script>
 {% endblock %}
