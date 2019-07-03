@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'homepage',
     'login',
     'questionnaire',
-    'adviser'
+    'adviser',
+    'rest_framework',
+
 ]
 
 

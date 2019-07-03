@@ -3,21 +3,35 @@
 
 {% block questionnaireContent %}
 <div class="container">
-    <form name='myform' action= "{% url 'adviser:start' %}" method="GET">
-        <label for="stockpicker">Pick a stock bro</label>
-        <select name="stockpicker" id="stockpicker" >
-            <option >2330.TW</option>
-            <option >2207.TW</option>
-            <option >0050.TW</option>
-        </select>
+    <div class="row">
+        <form name='myform' action= "{% url 'adviser:start' %}" method="GET">
+            <label for="stockpicker">Pick a stock bro</label>
+            <select name="stockpicker" id="stockpicker" >
+                <option >2330.TW</option>
+                <option >2207.TW</option>
+                <option >0050.TW</option>
+            </select>
 
 
-        <input class= "btn" type="submit" value="enter">
-        <input class= "btn" type="reset" value="reset">
-    </form>
+            <input class= "btn" type="submit" value="enter">
+            <input class= "btn" type="reset" value="reset">
+        </form>
+    </div>
+    <div class="row" id="tester">
+    </div>
 </div>
 
+</div>
 
+{% endblock %}
+{% block contentJS %}
+    <script>
+        TESTER = document.getElementById('tester');
+        Plotly.plot( TESTER, [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16] }], {
+        margin: { t: 0 } } );
+    </script>
 {% endblock %}
 
 

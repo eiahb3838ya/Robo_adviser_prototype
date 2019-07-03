@@ -10,6 +10,8 @@
             crossorigin="anonymous" />
 <!--        cdn jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--        cdn plotly-->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <title>XiQi Robo adviser</title>
         {% block contentInHead %}
         {% endblock%}
@@ -57,8 +59,7 @@
     {% endblock %}
     {% block contentJS %}
     {% endblock %}
-        <!--        cdn plotly-->
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
         <script>
             $("#menu-toggle").click(function(e) {
               e.preventDefault();

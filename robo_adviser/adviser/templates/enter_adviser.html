@@ -3,18 +3,21 @@
 
 {% block resultContent %}
 <div class="container">
-    <form name='myform'  method="GET">
-        <label for="stockpicker">Pick a stock bro</label>
-        <select name="stockpicker" id="stockpicker" disabled>
-            <option value= "{{selected_stock}}" selected>{{selected_stock}}</option>
-            {% for a_stock in stock_options %}
-            <option value={{ a_stock }}>{{ a_stock }}</option>
-            {% endfor %}
-        </select>
-        <button class= "btn" type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
-        <button class= "btn"type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
-        <input id = "reset_btn" class= "btn" type="reset" value="reset">
-    </form>
+    <div class="row" id="tester">
+        <form name='myform'  method="GET">
+            <label for="stockpicker">Pick a stock bro</label>
+            <select name="stockpicker" id="stockpicker" disabled>
+                <option value= "{{selected_stock}}" selected>{{selected_stock}}</option>
+                {% for a_stock in stock_options %}
+                <option value={{ a_stock }}>{{ a_stock }}</option>
+                {% endfor %}
+            </select>
+            <button class= "btn" type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
+            <button class= "btn"type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
+            <input id = "reset_btn" class= "btn" type="reset" value="reset">
+        </form>
+    </div>
+    <div class="row" id="line_fig"></div>
 </div>
 
 
@@ -28,5 +31,49 @@
         //$(':disabled').each(function(){
         //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');
         //});
+
+        $('#stockpicker').change(function(){
+
+            var endpoint = 'api/chart/data'
+            var articleData =  articleLabels = []
+
+            $.ajax({
+                method:"GET",
+                url:endpoint,
+                data:{
+                    user_picked: $('#stockpicker').val()
+                },
+                success:function(data){
+                    articleLabels = data.article_labels;
+                    articleData = data.article_data;
+                    prepareChart();
+
+                },
+                error:function(e){
+                    console.log(e);
+                }
+            });
+
+            function prepareChart(){
+                var trace1 = {
+                    mode: 'lines',
+                    x: articleData,
+                    y: articleLabels,
+
+                };
+                var data = [ trace1 ];
+
+                var layout = {
+                  title:'Line Plot'
+                };
+
+                Plotly.newPlot('line_fig', data, layout);
+            };
+
+
+
+
+        });
     </script>
+
 {% endblock %}
