@@ -5,7 +5,7 @@
 <div class="container">
     <form name='myform'  method="GET">
         <label for="stockpicker">Pick a stock bro</label>
-        <select name="stockpicker" id="stockpicker" >
+        <select name="stockpicker" id="stockpicker" disabled>
             <option value= "{{selected_stock}}" selected>{{selected_stock}}</option>
             {% for a_stock in stock_options %}
             <option value={{ a_stock }}>{{ a_stock }}</option>
