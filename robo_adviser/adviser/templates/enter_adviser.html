@@ -23,57 +23,57 @@
 
 {% endblock %}
 {% block contentJS %}
-    <script>
-        $("#reset_btn").click(function(){
-          $("#stockpicker").attr("disabled",false);
-        });
-        //solve the thing that Disabled form elements are not sent by the form.
-        //$(':disabled').each(function(){
-        //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');
-        //});
+<!--    <script>-->
+<!--        $("#reset_btn").click(function(){-->
+<!--          $("#stockpicker").attr("disabled",false);-->
+<!--        });-->
+<!--        //solve the thing that Disabled form elements are not sent by the form.-->
+<!--        //$(':disabled').each(function(){-->
+<!--        //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');-->
+<!--        //});-->
 
-        $('#stockpicker').change(function(){
+<!--        $('#stockpicker').change(function(){-->
 
-            var endpoint = 'api/chart/data'
-            var articleData =  articleLabels = []
+<!--            var endpoint = 'api/chart/data'-->
+<!--            var articleData =  articleLabels = []-->
 
-            $.ajax({
-                method:"GET",
-                url:endpoint,
-                data:{
-                    user_picked: $('#stockpicker').val()
-                },
-                success:function(data){
-                    articleLabels = data.article_labels;
-                    articleData = data.article_data;
-                    prepareChart();
+<!--            $.ajax({-->
+<!--                method:"GET",-->
+<!--                url:endpoint,-->
+<!--                data:{-->
+<!--                    user_picked: $('#stockpicker').val()-->
+<!--                },-->
+<!--                success:function(data){-->
+<!--                    articleLabels = data.article_labels;-->
+<!--                    articleData = data.article_data;-->
+<!--                    prepareChart();-->
 
-                },
-                error:function(e){
-                    console.log(e);
-                }
-            });
+<!--                },-->
+<!--                error:function(e){-->
+<!--                    console.log(e);-->
+<!--                }-->
+<!--            });-->
 
-            function prepareChart(){
-                var trace1 = {
-                    mode: 'lines',
-                    x: articleData,
-                    y: articleLabels,
+<!--            function prepareChart(){-->
+<!--                var trace1 = {-->
+<!--                    mode: 'lines',-->
+<!--                    x: articleData,-->
+<!--                    y: articleLabels,-->
 
-                };
-                var data = [ trace1 ];
+<!--                };-->
+<!--                var data = [ trace1 ];-->
 
-                var layout = {
-                  title:'Line Plot'
-                };
+<!--                var layout = {-->
+<!--                  title:'Line Plot'-->
+<!--                };-->
 
-                Plotly.newPlot('line_fig', data, layout);
-            };
-
-
+<!--                Plotly.newPlot('line_fig', data, layout);-->
+<!--            };-->
 
 
-        });
-    </script>
+
+
+<!--        });-->
+<!--    </script>-->
 
 {% endblock %}

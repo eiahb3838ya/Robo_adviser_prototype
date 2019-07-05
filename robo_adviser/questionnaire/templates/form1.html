@@ -8,8 +8,12 @@
             <label for="stockpicker">Pick a stock bro</label>
             <select name="stockpicker" id="stockpicker" >
                 <option >2330.TW</option>
-                <option >2207.TW</option>
+                <option >2303.TW</option>
                 <option >0050.TW</option>
+                <option >2329.TW</option>
+                <option >2441.TW</option>
+                <option >2454.TW</option>
+                <option >2451.TW</option>
             </select>
 
 
@@ -17,21 +21,101 @@
             <input class= "btn" type="reset" value="reset">
         </form>
     </div>
-    <div class="row" id="tester">
+    <div class="row" id="line_fig">
     </div>
 </div>
 
 </div>
 
 {% endblock %}
+
 {% block contentJS %}
     <script>
-        TESTER = document.getElementById('tester');
-        Plotly.plot( TESTER, [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] }], {
-        margin: { t: 0 } } );
+
+        //solve the thing that Disabled form elements are not sent by the form.
+        //$(':disabled').each(function(){
+        //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');
+        //});
+
+        //開啟的時候就先畫圖
+        $(document).ready(function(){
+            var endpoint = 'api/chart/data'
+            var articleData =  articleLabels = []
+
+            $.ajax({
+                method:"GET",
+                url:endpoint,
+                data:{
+                    user_picked: $('#stockpicker').val()
+                },
+                success:function(data){
+                    articleLabels = data.article_labels;
+                    articleData = data.article_data;
+                    prepareChart();
+
+                },
+                error:function(e){
+                    alert(e);
+                }
+            });
+            function prepareChart(){
+                var trace1 = {
+                    mode: 'lines',
+                    x: articleData,
+                    y: articleLabels,
+
+                };
+                var data = [ trace1 ];
+
+                var layout = {
+                  title:'Line Plot'
+                };
+
+                Plotly.newPlot('line_fig', data, layout);
+            };
+        });
+
+        //換標的的時候畫圖
+        $('#stockpicker').change(function(){
+
+            var endpoint = 'api/chart/data'
+            var articleData =  articleLabels = []
+
+            $.ajax({
+                method:"GET",
+                url:endpoint,
+                data:{
+                    user_picked: $('#stockpicker').val()
+                },
+                success:function(data){
+                    articleLabels = data.article_labels;
+                    articleData = data.article_data;
+                    prepareChart();
+
+                },
+                error:function(e){
+                    console.log(e);
+                }
+            });
+
+            function prepareChart(){
+                var trace1 = {
+                    mode: 'lines',
+                    x: articleData,
+                    y: articleLabels,
+
+                };
+                var data = [ trace1 ];
+
+                var layout = {
+                  title:'Line Plot'
+                };
+
+                Plotly.newPlot('line_fig', data, layout);
+            };
+        });
     </script>
+
 {% endblock %}
 
 

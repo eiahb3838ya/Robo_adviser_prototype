@@ -25,15 +25,16 @@
           </h4>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
+          <form name='inputEmail' action="{% url 'goToRobot'%}" method="get">
+<!--            form name='myform' action= "{% url 'adviser:start' %}" method="GET"-->
+            <div class="form-group">
+              <div class="col-12 col-md-12 mb-2 mb-md-0">
+                <input type="email" class="form-control " name="user_email" id="user_email" placeholder="Enter your email...">
               </div>
-
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">get started</button>
-              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-lg btn-primary" >trading robot</button>
+              <button id="fake_btn" type="button" class="btn btn-lg btn-secondary" >robot adviser</button>
             </div>
           </form>
 
@@ -42,10 +43,7 @@
 
       </div>
 <!--      這很殺小-->
-      <div class="event-box">
-            <button type="button" class="btn btn-lg btn-primary" onclick="goto_url('/Login?returnUrl=memberFirst')">首次開通</button>
-            <button type="button" class="btn btn-lg btn-secondary" onclick="goto_url('/Member/Register')">免費開戶</button>
-      </div>
+
     </div>
   </header>
 
@@ -189,4 +187,12 @@
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 {% endblock %}
+{% block contentJS %}
+  <script>
+      $("#fake_btn").click(function(e) {
+        alert("not ready")
+      });
+  </script>
+{% endblock %}
+
 

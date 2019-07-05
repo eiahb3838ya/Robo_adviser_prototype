@@ -43,14 +43,14 @@ def debuger_result1(request):
     return (render(request, 'result1.html', locals()))
 
 
-class TargetChartData(APIView):
-    def get(self, request, format = None):
-        user_picked = request.GET['user_picked']
-        df = data_generator.get_history_data(user_picked)
-        article_data=df.index
-        article_labels=df.Close
-        data={
-            "article_data" : article_data,
-            "article_labels" : article_labels
-        }
-        return(Response(data))
+# class TargetChartData(APIView):
+#     def get(self, request, format = None):
+#         user_picked = request.GET['user_picked']
+#         df = data_generator.get_history_data(user_picked)
+#         article_data=df.index
+#         article_labels=df.Close
+#         data={
+#             "article_data" : article_data,
+#             "article_labels" : article_labels
+#         }
+#         return(Response(data))
