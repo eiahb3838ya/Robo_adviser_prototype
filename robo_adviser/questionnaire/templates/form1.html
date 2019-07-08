@@ -24,6 +24,7 @@
 
             <button class= "btn" type="submit" name="action" value="strategy_smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
             <button class= "btn" type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
+            <button class= "btn" type="submit" name="action" value="debuger_result2" formaction="{% url 'adviser:debuger_result2' %}">debuger_result2</button>
 
             </div>
 
@@ -50,7 +51,6 @@
         $(document).ready(function(){
             var endpoint = 'api/chart/data'
             var articleData =  articleLabels = []
-
             $.ajax({
                 method:"GET",
                 url:endpoint,
@@ -77,7 +77,7 @@
                 var data = [ trace1 ];
 
                 var layout = {
-                  title:'Line Plot'
+                  title:$('#stockpicker').val()
                 };
 
                 Plotly.newPlot('line_fig', data, layout);
@@ -117,7 +117,7 @@
                 var data = [ trace1 ];
 
                 var layout = {
-                  title:'Line Plot'
+                  title:$('#stockpicker').val()
                 };
 
                 Plotly.newPlot('line_fig', data, layout);

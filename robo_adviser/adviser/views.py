@@ -77,6 +77,13 @@ def debuger_result1(request):
     return (render(request, 'result1.html', locals()))
 
 
+def debuger_result2(request):
+    try:
+        user_picked = request.GET['stockpicker']
+    except:
+        print("rrrrrr")
+    return (render(request, 'result1.html', locals()))
+
 # class TargetChartData(APIView):
 #     def get(self, request, format = None):
 #         user_picked = request.GET['user_picked']
