@@ -5,8 +5,6 @@ from rest_framework.views import APIView
 # Create your views here.
 
 def start(request):
-    selected_stock = request.GET['stockpicker']
-    stock_options=["2330.TW", "0050.TW", "2207.TW"]
     return(render(request,'enter_adviser.html',locals()))
 
 def strategy_bbandma(request):
@@ -33,10 +31,15 @@ def strategy_smawma(request):
     winvar = 0
     # get the history price with yahoo finance
     target_price_df = data_generator.get_history_data(user_picked)
+    selected_target=user_picked
+    selected_strategy="smawma"
+
     # call smawma
     df,count,acmroi,winnum,winvar=SMAWMA.main(target_price_df,count,acmroi,winrate,winvar)
-
-    return(HttpResponse(df.to_html()))
+    # prepare data for js
+    result_table_json = df.to_json(orient='records')
+    columns = [{'field': f, 'title': f} for f in df.columns]
+    return(render(request,"result2.html", locals()))
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')

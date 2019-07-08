@@ -3,21 +3,10 @@
 
 {% block resultContent %}
 <div class="container">
-    <div class="row" id="tester">
-        <form name='myform'  method="GET">
-            <label for="stockpicker">Pick a stock bro</label>
-            <select name="stockpicker" id="stockpicker" >
-                <option value= "{{selected_stock}}" selected>{{selected_stock}}</option>
-                {% for a_stock in stock_options %}
-                <option value={{ a_stock }}>{{ a_stock }}</option>
-                {% endfor %}
-            </select>
-            <button class= "btn" type="submit" name="action" value="smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
-            <button class= "btn"type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
-<!--            <input id = "reset_btn" class= "btn" type="reset" value="reset">-->
-        </form>
+    <div class="row" >
+        <h1>this is the start page of the adviser</h1>
     </div>
-    <div class="row" id="line_fig"></div>
+
 </div>
 
 

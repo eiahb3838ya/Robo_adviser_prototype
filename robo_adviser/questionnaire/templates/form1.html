@@ -8,7 +8,7 @@
 {% block questionnaireContent %}
 <div class="container">
     <div class="row">
-        <form name='myform' action= "{% url 'adviser:start' %}" method="GET">
+        <form name='myform'  method="GET">
             <label for="stockpicker">Pick a stock bro</label>
             <select name="stockpicker" id="stockpicker" >
                 <option >2330.TW</option>
@@ -20,9 +20,13 @@
                 <option >2451.TW</option>
             </select>
 
+            <div class="row">
 
-            <input class= "btn" type="submit" value="enter">
-            <input class= "btn" type="reset" value="reset">
+            <button class= "btn" type="submit" name="action" value="strategy_smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
+            <button class= "btn" type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
+
+            </div>
+
         </form>
     </div>
     <div class="row" id="line_fig">

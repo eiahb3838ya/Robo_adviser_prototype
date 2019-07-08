@@ -15,7 +15,7 @@ def main(df, count, acmroi, winrate, winvar):
     df['SMA']=SMA
     df['WMA']=WMA
     df["change"]=WMA/SMA
-    print(df)
+
     # set default
 
     df['XBuy'] = False
