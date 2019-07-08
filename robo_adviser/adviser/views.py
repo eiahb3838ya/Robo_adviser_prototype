@@ -17,7 +17,25 @@ def strategy_bbandma(request):
     # call BBand
     df, count, acmroi, winnum, winfact = BBandMA.main(target_price_df)
 
-    return (HttpResponse(df.to_html()))
+    # some adjust for to_json properly
+    df = df.reset_index()
+    df_to_display = df.drop(axis=0, columns=['Open', 'High', 'Low', 'Adj Close','BBupper', 'BBlower'])
+    dates = df_to_display.Date
+    df_to_display['Date'] = dates.apply(lambda x: x.strftime('%Y-%m-%d'))
+
+    # prepare data for js
+    selected_target = user_picked
+    selected_strategy = "BBand"
+    result_table_json = df_to_display.to_json(orient='records', double_precision=4)
+    columns = [{'field': f, 'title': f} for f in df_to_display.columns]
+
+    context = {
+        "selected_target": selected_target,
+        "selected_strategy": "bbandma",
+        "data": result_table_json,
+        "columns": columns,
+    }
+    return (render(request, "result2.html", context))
 
 def strategy_smawma(request):
     try:
@@ -31,15 +49,28 @@ def strategy_smawma(request):
     winvar = 0
     # get the history price with yahoo finance
     target_price_df = data_generator.get_history_data(user_picked)
-    selected_target=user_picked
-    selected_strategy="smawma"
-
     # call smawma
     df,count,acmroi,winnum,winvar=SMAWMA.main(target_price_df,count,acmroi,winrate,winvar)
+
+    # some adjust for to_json properly
+    df = df.reset_index()
+    df_to_display=df.drop(axis=0, columns=['Open', 'High', 'Low', 'Adj Close'])
+    dates = df_to_display.Date
+    df_to_display['Date']=dates.apply(lambda x: x.strftime('%Y-%m-%d'))
+
     # prepare data for js
-    result_table_json = df.to_json(orient='records')
-    columns = [{'field': f, 'title': f} for f in df.columns]
-    return(render(request,"result2.html", locals()))
+    selected_target = user_picked
+    selected_strategy = "smawma"
+    result_table_json = df_to_display.to_json(orient='records',double_precision=4)
+    columns = [{'field': f, 'title': f} for f in df_to_display.columns]
+
+    context={
+        "selected_target": selected_target,
+        "selected_strategy": "smawma",
+        "data": result_table_json,
+        "columns": columns,
+    }
+    return(render(request,"result2.html", context))
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
