@@ -1,20 +1,24 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block contentInHead %}
+
+  <!-- Bootstrap for this one -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link href="{% static 'css/simple-sidebar.css'%}" rel="stylesheet">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
 
 {% endblock %}
 
 {%block contentInBody%}
-
+<!--such a fucking weird thing that this link has to put it in here that it will work -->
+  <link href="{% static 'css/simple-sidebar.css'%}" rel="stylesheet">
   <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
+
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">welcome dude </div>
+      <div class="sidebar-heading"><h3>Welcome Dude</h3> </div>
       <div class="list-group list-group-flush">
         <a href="{% url 'questionnaire:start' %}" class="list-group-item list-group-item-action bg-light">start</a>
         <a href="{% url 'questionnaire:form1' %}" class="list-group-item list-group-item-action bg-light">single target strategy</a>
@@ -23,10 +27,14 @@
       </div>
     </div>
 
+
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
     {% block questionnaireContent%}
 
     {% endblock %}
-
+      </div>
+    </div>
 
 
 
