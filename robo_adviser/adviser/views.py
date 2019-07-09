@@ -35,7 +35,7 @@ def strategy_bbandma(request):
         "data": result_table_json,
         "columns": columns,
     }
-    return (render(request, "result2.html", context))
+    return (render(request, "single_target_result.html", context))
 
 def strategy_smawma(request):
     try:
@@ -70,7 +70,7 @@ def strategy_smawma(request):
         "data": result_table_json,
         "columns": columns,
     }
-    return(render(request,"result2.html", context))
+    return(render(request,"single_target_result.html", context))
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
@@ -78,15 +78,19 @@ def debuger_result1(request):
 
 
 def debuger_result2(request):
-    # try:
-    #     user_picked = request.GET['stockpicker']
-    # except:
-    #     print("error")
+    try:
+        selected_target = request.GET['stockpicker']
+    except:
+        print("error")
+    return (render(request, 'result2.html', locals()))
 
-    return (render(request, 'result1.html', locals()))
 
 class TargetChartData(APIView):
     def get(self, request, format = None):
-        data_dict = strategy_from_r.data_dict
-        print(data_dict)
+        selected_target = request.GET["selected_target"]
+        print(selected_target)
+
+        data_dict = strategy_from_r.main(selected_target)
+
+        print("data_dict", data_dict)
         return( Response( data_dict ) )

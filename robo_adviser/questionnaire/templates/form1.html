@@ -11,13 +11,11 @@
         <form name='myform'  method="GET">
             <label for="stockpicker">Pick a stock bro</label>
             <select name="stockpicker" id="stockpicker" >
-                <option >2330.TW</option>
-                <option >2303.TW</option>
-                <option >0050.TW</option>
-                <option >2329.TW</option>
-                <option >2441.TW</option>
-                <option >2454.TW</option>
-                <option >2451.TW</option>
+                {% for a_stock in stock_list %}
+                   <option >{{a_stock}}</option>
+                {% endfor %}
+
+
             </select>
 
             <div class="row">

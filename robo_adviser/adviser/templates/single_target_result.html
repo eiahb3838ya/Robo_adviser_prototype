@@ -1,0 +1,48 @@
+{% extends "adviser_base.html" %}
+
+
+
+{% block resultContent %}
+<div class="container">
+    <div class="row">
+        <h2>you have selected target {{selected_target}} and the strategy {{selected_strategy}}</h2>
+    </div>
+    <div class="row">
+        <div id="result_table_html" class="col-10">
+            <table id="datatable"></table>
+        </div>
+
+    </div>
+    <div class="row">
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+{% block contentJS%}
+
+<script>
+
+    $('#datatable').bootstrapTable({
+        columns: {{ columns|safe }},  // here is where we use the column content from our Django View
+        data: {{ data|safe }},
+        striped: true,
+        pagination: true,
+        showColumns: true,
+        showToggle: false,
+        showExport: true,
+        sortable: true,
+        paginationVAlign: 'both',
+        pageSize: 10,
+        pageList: [10, 25, 50, 100, 'ALL'],
+    })
+
+
+</script>
+
+
+
+
+{% endblock%}

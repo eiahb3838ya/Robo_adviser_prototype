@@ -1,48 +1,66 @@
 {% extends "adviser_base.html" %}
 
 
-
 {% block resultContent %}
 <div class="container">
-    <div class="row">
-        <h2>you have selected target {{selected_target}} and the strategy {{selected_strategy}}</h2>
-    </div>
-    <div class="row">
-        <div id="result_table_html" class="col-10">
-            <table id="datatable"></table>
-        </div>
 
-    </div>
     <div class="row">
-
+        <h2>you have selected target <strong>{{selected_target}}</strong> </h2>
     </div>
 
+    <div class="row" id="line_fig"></div>
+    <div class="row">
+        <table id="datatable"></table>
+    </div>
 </div>
 
 
 {% endblock %}
-{% block contentJS%}
 
+
+
+{% block contentJS %}
 <script>
+    $(document).ready(function(){
+        var endpoint = 'api/chart/data'
+        var Date =  RSI = MACD = []
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{
+                selected_target:"{{selected_target}}"
+            },
+            success:function(data){
+                Date = data.Date;
+                RSI = data.RSI;
+                MACD = data.MACD;
+                prepareChart();
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+        function prepareChart(){
+            var trace1 = {
+                mode: 'lines',
+                x: Date,
+                y: RSI,
+            };
+            var trace2 = {
+                mode: 'lines',
+                x: Date,
+                y: MACD,
+            };
+            var data = [ trace1, trace2 ];
+            var layout = {
+              title:"MACD & RSI"
+            };
 
-    $('#datatable').bootstrapTable({
-        columns: {{ columns|safe }},  // here is where we use the column content from our Django View
-        data: {{ data|safe }},
-        striped: true,
-        pagination: true,
-        showColumns: true,
-        showToggle: false,
-        showExport: true,
-        sortable: true,
-        paginationVAlign: 'both',
-        pageSize: 10,
-        pageList: [10, 25, 50, 100, 'ALL'],
-    })
-
-
+            Plotly.newPlot('line_fig', data, layout);
+        };
+    });
 </script>
+{% endblock %}
 
 
 
-
-{% endblock%}

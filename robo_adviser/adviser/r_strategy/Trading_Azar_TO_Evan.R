@@ -27,7 +27,7 @@ source("XQC_Trading_Fun1.R", local = TRUE)
 DataTable <- readRDS("SQLDB_TW_20190705.RDS")
 
 ##### getXtsData =====
-StockCode = "2330"
+#StockCode = "2330"
 SelectCol = "Close"
 Data_Xts <- getXtsData(DataTable, StockCode)
 

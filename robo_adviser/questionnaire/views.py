@@ -17,7 +17,13 @@ def start(request):
     return(render(request,'enter_questionnaire.html'))
 
 def form1(request):
-    return(render(request, "form1.html"))
+    stock_list=["1216" ,"1229", "1233" ,"1434" ,"1455", "1463", "1522", "1722", "2027", "2330", "2347", "2356", "2382", "2441", "2474", "2489",
+    "2498", "2888", "2912", "3481", "6115", "6189", "9933"]
+    stock_list= [strr+".TW" for strr in stock_list]
+    context={
+        "stock_list":stock_list,
+    }
+    return(render(request, "form1.html",context))
 
 def form2(request):
     return(render(request, "form2.html"))
