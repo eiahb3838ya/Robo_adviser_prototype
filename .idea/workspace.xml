@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49a69e20-d2dd-4fde-bd8f-ef39c4bef682" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html">
+        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="217">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -28,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="228">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -38,46 +38,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/enter_adviser.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/adviser_base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+            <state relative-caret-position="-21">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -85,25 +49,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="5" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-95">
+              <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/SMAWMA.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="50" column="33" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="33" />
+            <state relative-caret-position="179">
+              <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,6 +101,9 @@
       <find>sign in</find>
       <find>auth</find>
     </findStrings>
+    <replaceStrings>
+      <replace>/</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -162,7 +126,6 @@
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/start.html" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/BBandMA.py" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html" />
         <option value="$PROJECT_DIR$/robo_adviser/questionnaire/static/css/awesome_bootstrap_checkbox.css" />
         <option value="$PROJECT_DIR$/robo_adviser/robo_adviser/settings.py" />
         <option value="$PROJECT_DIR$/robo_adviser/homepage/urls.py" />
@@ -182,15 +145,16 @@
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/SMAWMA.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/adviser_base.html" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/result2.html" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/urls.py" />
         <option value="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/views.py" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/urls.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
+    <option name="x" value="-14" />
     <option name="width" value="1080" />
     <option name="height" value="1746" />
   </component>
@@ -384,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562579711019</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add a view in adviser for testing rpy2">
+      <created>1562587001658</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562587001658</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -397,15 +368,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1228" height="783" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1228" height="783" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19514237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19514237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29709035" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49916247" visible="true" weight="0.3583461" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49916247" visible="true" weight="0.39050537" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,7 +457,8 @@
     <MESSAGE value="use mdbootstrap to for a good looking theme&#10;fix some weird bug" />
     <MESSAGE value="try to show strategy result to result2.html" />
     <MESSAGE value="super cool table to display the result of smawma and bbandma" />
-    <option name="LAST_COMMIT_MESSAGE" value="super cool table to display the result of smawma and bbandma" />
+    <MESSAGE value="add a view in adviser for testing rpy2" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a view in adviser for testing rpy2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/robo_adviser/statics/css/landing-page.css" />
@@ -610,13 +581,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/css/dashboard.css" />
     <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/js/dashboard.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -678,16 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/questionnaire_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/form2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -705,70 +660,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/adviser_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/enter_adviser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state relative-caret-position="152">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/SMAWMA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
+        <state relative-caret-position="874">
           <caret line="50" column="33" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="33" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/adviser_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-293">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/questionnaire_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -780,10 +704,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="84" column="11" lean-forward="true" selection-start-line="50" selection-end-line="84" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/result1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="179">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

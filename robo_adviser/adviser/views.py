@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .indicators_factory import data_generator,SMAWMA,BBandMA
+from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r
 from rest_framework.response import Response
 from rest_framework.views import APIView
 # Create your views here.
@@ -78,20 +78,15 @@ def debuger_result1(request):
 
 
 def debuger_result2(request):
-    try:
-        user_picked = request.GET['stockpicker']
-    except:
-        print("rrrrrr")
+    # try:
+    #     user_picked = request.GET['stockpicker']
+    # except:
+    #     print("error")
+
     return (render(request, 'result1.html', locals()))
 
-# class TargetChartData(APIView):
-#     def get(self, request, format = None):
-#         user_picked = request.GET['user_picked']
-#         df = data_generator.get_history_data(user_picked)
-#         article_data=df.index
-#         article_labels=df.Close
-#         data={
-#             "article_data" : article_data,
-#             "article_labels" : article_labels
-#         }
-#         return(Response(data))
+class TargetChartData(APIView):
+    def get(self, request, format = None):
+        data_dict = strategy_from_r.data_dict
+        print(data_dict)
+        return( Response( data_dict ) )

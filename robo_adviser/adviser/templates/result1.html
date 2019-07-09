@@ -6,9 +6,60 @@
     {{ values }}
 <!--    {{ target_price_df }}-->
     {{ selected_strategy }}
+    <div class="row" id="line_fig">
 
+    </div>
 </div>
 
 
+{% endblock %}
+
+
+{% block contentJS %}
+<script>
+    $(document).ready(function(){
+        var endpoint = 'api/chart/data'
+        var Date =  RSI = MACD = []
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{},
+//            async: false,
+//            timeout: 30000,
+            success:function(data){
+                alert(data);
+                Date = data.Date;
+                RSI = data.RSI;
+                MACD = data.MACD;
+                prepareChart();
+
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+        function prepareChart(){
+            var trace1 = {
+                mode: 'lines',
+                x: Date,
+                y: RSI,
+
+            };
+            var trace2 = {
+                mode: 'lines',
+                x: Date,
+                y: MACD,
+
+            };
+            var data = [ trace1, trace2 ];
+
+            var layout = {
+              title:"MACD & RSI"
+            };
+
+            Plotly.newPlot('line_fig', data, layout);
+        };
+    });
+</script>
 {% endblock %}
 
