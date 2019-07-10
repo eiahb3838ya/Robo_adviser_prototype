@@ -26,7 +26,7 @@ def main(df):
     buyprice=0
     sellprice=0
     for i in range(len(df)):
-        if not flag and df['High'][i] > df['BBupper'][i] and df['Volume'][i]> (df['volMA'][i]*2):
+        if not flag and df['High'][i] > upper[i] and vol[i] > (df['volMA'][i]*2):
             # print("BUYY", ",change*100: ", this_change, ",close[i]: ", close[i])
             df.BBXBuy[df.index[i]] = True
             df.BBYBuy[i] = close[i]

@@ -19,7 +19,7 @@ def strategy_bbandma(request):
 
     # some adjust for to_json properly
     df = df.reset_index()
-    df_to_display = df.drop(axis=0, columns=['Open', 'High', 'Low', 'Adj Close','BBupper', 'BBlower'])
+    df_to_display = df.drop(axis=0, columns=['Open', 'High', 'Low','BBupper', 'BBlower'])
     dates = df_to_display.Date
     df_to_display['Date'] = dates.apply(lambda x: x.strftime('%Y-%m-%d'))
 
@@ -54,7 +54,7 @@ def strategy_smawma(request):
 
     # some adjust for to_json properly
     df = df.reset_index()
-    df_to_display=df.drop(axis=0, columns=['Open', 'High', 'Low', 'Adj Close'])
+    df_to_display=df.drop(axis=0, columns=['Open', 'High', 'Low'])
     dates = df_to_display.Date
     df_to_display['Date']=dates.apply(lambda x: x.strftime('%Y-%m-%d'))
 
@@ -77,12 +77,14 @@ def debuger_result1(request):
     return (render(request, 'result1.html', locals()))
 
 
-def debuger_result2(request):
+def r_strategy_result(request):
     try:
         selected_target = request.GET['stockpicker']
     except:
         print("error")
-    return (render(request, 'result2.html', locals()))
+    return (render(request, 'r_strategy_result.html', locals()))
+
+
 
 
 class TargetChartData(APIView):
