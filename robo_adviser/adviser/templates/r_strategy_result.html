@@ -32,7 +32,7 @@
 {% block contentJS %}
 <script>
     $(document).ready(function(){
-        var endpoint = 'api/chart/data'
+        var endpoint = "{% url 'adviser:api_chart_return_data' %}"
         var Date =  RSI = MACD = []
         $.ajax({
             method:"GET",

@@ -6,7 +6,6 @@ import datetime as dt
 import yfinance as yf
 
 yf.pdr_override()
-
 def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datetime(2020, 1, 1)):
     # 1476	儒鴻
     # 2317	鴻海
@@ -27,7 +26,8 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
     can_call_api = ["1476", "2317", "2327", "2330", "2448", "2454", "2455", "2474", "2492",
                     "2498", "3019", "3037", "3406", "3443", "6153"]
     can_call_api = [codestr + ".TW" for codestr in can_call_api]
-    if (target in can_call_api):
+    # if (target in can_call_api):
+    try:
         payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2019/05/08 09:10:00',
                    'KLINE_DATETIME_E': '2020/01/01 12:00:00'}
         response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice", params=payload)
@@ -37,9 +37,7 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
         result_df = result_df.drop(axis=0, columns=["STOCK_ID", "KLINE_PERIOD"]).astype(float)
         result_df.columns = ['Close', 'High', 'Low', 'Open', 'Volume']
         result_df.index = pd.DatetimeIndex(result_df.index.rename("Date"))
-
-        print("result_df", result_df)
-    else:
+    except:
         result_df = web.get_data_yahoo([target], startdate, enddate)
     return(result_df)
 

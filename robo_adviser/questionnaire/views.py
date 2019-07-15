@@ -19,7 +19,8 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
     can_call_api = ["1476", "2317", "2327", "2330", "2448", "2454", "2455", "2474", "2492",
                     "2498", "3019", "3037", "3406", "3443", "6153"]
     can_call_api = [codestr + ".TW" for codestr in can_call_api]
-    if (target in can_call_api):
+    # if (target in can_call_api):
+    try:
         print("call mark web api")
         payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2019/05/08 09:10:00',
                    'KLINE_DATETIME_E': '2020/01/01 12:00:00'}
@@ -30,7 +31,7 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
         result_df = result_df.drop(axis=0, columns=["STOCK_ID", "KLINE_PERIOD"]).astype(float)
         result_df.columns = ['Close', 'High', 'Low', 'Open', 'Volume']
         result_df.index = pd.DatetimeIndex(result_df.index.rename("Date"))
-    else:
+    except:
         print("call yahoo finance")
         result_df = web.get_data_yahoo([target], startdate, enddate)
     return (result_df)

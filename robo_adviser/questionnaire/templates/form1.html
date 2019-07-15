@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <form name='myform'  method="GET">
-            <label for="stockpicker">Pick a stock bro</label>
+            <label for="stockpicker"><h1>Pick a stock bro:</h1></label>
             <select name="stockpicker" id="stockpicker" >
                 {% for a_stock in stock_list %}
                    <option >{{a_stock}}</option>
@@ -20,7 +20,7 @@
 
             <div class="row">
 
-            <button class= "btn" type="submit" name="action" value="strategy_smawma" formaction="{% url 'adviser:strategy_smawma' %}" >smawma</button>
+            <button class= "btn" type="submit" name="action" value="smawma_result" formaction="{% url 'adviser:smawma_result' %}" >smawma</button>
             <button class= "btn" type="submit" name="action" value="strategy_bbandma" formaction="{% url 'adviser:strategy_bbandma' %}">bbandma</button>
             <button class= "btn" type="submit" name="action" value="r_strategy_result" formaction="{% url 'adviser:r_strategy_result' %}">r_strategy_result</button>
 

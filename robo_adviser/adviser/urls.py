@@ -5,10 +5,12 @@ app_name = 'adviser'
 urlpatterns = [
     path('', views.start, name='start'),
     path('strategy_bbandma/', views.strategy_bbandma, name='strategy_bbandma'),
-    path('strategy_smawma/', views.strategy_smawma, name='strategy_smawma'),
-
-    path('debuger_result1/', views.debuger_result1,name='debuger_result1'),
+    path('smawma_result/', views.smawma_result, name='smawma_result'),
     path('r_strategy_result/', views.r_strategy_result,name='r_strategy_result'),
 
-    path('r_strategy_result/api/chart/data',views.TargetChartData.as_view(),name="api_target_chart_data")
+    path('debuger_result1/', views.debuger_result1,name='debuger_result1'),
+
+
+    path('api/from_r/chart/return',views.SrategyFromRReturnData.as_view(),name="api_chart_return_data"),
+    path('api/smawma/table/all',views.SrategySMAWMATableData.as_view(),name="api_smawma_table_data")
 ]

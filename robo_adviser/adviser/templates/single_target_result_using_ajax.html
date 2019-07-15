@@ -1,0 +1,77 @@
+{% extends "adviser_base.html" %}
+
+
+
+{% block resultContent %}
+<div class="container">
+    <div class="row">
+        <h2>you have selected target {{selected_target}} and the strategy {{selected_strategy}}</h2>
+    </div>
+    <div class="row">
+        <div id="result_table_html" class="col-10">
+            <table id="datatable"></table>
+        </div>
+
+    </div>
+    <div class="row">
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+{% block contentJS%}
+
+<script>
+    $(document).ready(function(){
+        var endpoint = "{% url 'adviser:api_smawma_table_data' %}"
+        var selected_target = columns =  result_table_json = []
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{
+                selected_target:"{{selected_target}}"
+            },
+            success:function(data){
+                selected_target=data.selected_target;
+                result_table_dict=data.result_table_dict;
+                columns = data.columns;
+                prepareTable();
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+        function prepareTable(){
+            $('#datatable').bootstrapTable({
+                data:result_table_dict,
+                columns:columns,
+                striped: true,
+                pagination: true,
+                showColumns: true,
+                showToggle: false,
+                showExport: true,
+                sortable: true,
+                paginationVAlign: 'both',
+                pageSize: 10,
+                pageList: [10, 25, 50, 100, 'ALL'],
+            });
+        };
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+
+
+
+{% endblock%}
