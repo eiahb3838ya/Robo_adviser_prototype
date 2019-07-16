@@ -22,9 +22,12 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
     # if (target in can_call_api):
     try:
         print("call mark web api")
-        payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2019/05/08 09:10:00',
+        # payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2019/05/08 09:10:00',
+        #            'KLINE_DATETIME_E': '2020/01/01 12:00:00'}
+        # response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice", params=payload)
+        payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2015/01/01 00:00:00',
                    'KLINE_DATETIME_E': '2020/01/01 12:00:00'}
-        response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice", params=payload)
+        response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice2", params=payload)
         response_dic = response.json()
         result_df = pd.DataFrame.from_dict(response_dic['GridData'])
         result_df = result_df.set_index("KLINE_DATETIME")
@@ -37,15 +40,25 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
     return (result_df)
 
 
+def get_stock_list():
+    payload = {}
+    response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStocList2", params=payload)
+    response_dic = response.json()
+    stock_list_df = pd.DataFrame(response_dic['GridData'])
+    stock_id = stock_list_df['STOCK_ID']
+    return(stock_list_df,stock_id)
+
+
 
 def start(request):
     return(render(request,'enter_questionnaire.html'))
 
 def form1(request):
-    stock_list=[ "1476","2317","2327","2330","2448","2454", "2455","2474","2492",
-                 "2498","3019","3037","3406","3443","6153"]
-    stock_list= [strr+".TW" for strr in stock_list]
-    context={
+
+    _, stock_list = get_stock_list()
+
+    stock_list = [strr+".TW" for strr in stock_list]
+    context = {
         "stock_list":stock_list,
     }
     return(render(request, "form1.html",context))
