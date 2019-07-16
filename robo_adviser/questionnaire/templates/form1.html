@@ -9,23 +9,36 @@
 <div class="container">
     <div class="row">
         <form name='myform'  method="GET">
-            <label for="stockpicker"><h1>Pick a stock bro:</h1></label>
-            <select name="stockpicker" id="stockpicker" >
-                {% for a_stock in stock_list %}
-                   <option >{{a_stock}}</option>
-                {% endfor %}
-
-
-            </select>
-
             <div class="row">
+                <div class="col-10 form-group">
+                    <label class="custom-label custom-label-lg" for="stockpicker"> <h4>Pick a stock bro </h4> </label>
+                    <select class="browser-default  custom-select custom-select-lg " name="stockpicker" id="stockpicker" >
+                        {% for a_stock in stock_list %}
+                           <option >{{a_stock}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <button class= "btn" type="submit" name="action" value="smawma_result" formaction="{% url 'adviser:smawma_result' %}" >smawma</button>
-            <button class= "btn" type="submit" name="action" value="bbandma_result" formaction="{% url 'adviser:bbandma_result' %}">bbandma</button>
-            <button class= "btn" type="submit" name="action" value="r_strategy_result" formaction="{% url 'adviser:r_strategy_result' %}">r_strategy_result</button>
+                <div class="col-10 form-group" hidden>
+                    <label class="custom-label custom-label-lg" for="strategypicker">Pick a stock bro</label>
+                    <select class="browser-default  custom-select custom-select-lg " name="strategypicker" id="strategypicker" >
+                        {% for a_stock in stock_list %}
+                           <option >{{a_stock}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <div class="btn-group btn-group">
+                        <button class= "btn" type="submit" name="action" value="smawma_result" formaction="{% url 'adviser:smawma_result' %}" >smawma</button>
+                        <button class= "btn" type="submit" name="action" value="bbandma_result" formaction="{% url 'adviser:bbandma_result' %}">bbandma</button>
+                        <button class= "btn" type="submit" name="action" value="r_strategy_result" formaction="{% url 'adviser:r_strategy_result' %}">r_strategy_result</button>
+                        <button class= "btn" type="submit" name="action" value="macd_result" formaction="{% url 'adviser:macd_result' %}">macd_result</button>
+                    </div>
+                </div>
+
 
             </div>
-
         </form>
     </div>
     <div class="row" id="line_fig">

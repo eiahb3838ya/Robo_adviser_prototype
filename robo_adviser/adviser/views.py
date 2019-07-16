@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
-from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r
+from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r,MACD
 from rest_framework.response import Response
 from rest_framework.views import APIView
 import json
@@ -37,9 +37,22 @@ def r_strategy_result(request):
         print("error")
     return (render(request, 'r_strategy_result.html', locals()))
 
+
+def macd_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'macd'
+    except:
+        print("error")
+    return (render(request, 'macd_result.html', locals()))
+
+
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
     return (render(request, 'result1.html', locals()))
+
+
+
 
 
 class StrategyFromRReturnData(APIView):
@@ -49,6 +62,14 @@ class StrategyFromRReturnData(APIView):
 
         data_dict = strategy_from_r.main(selected_target)
 
+        print("data_dict", data_dict)
+        return( Response( data_dict ) )
+
+class StrategyMACDReturnData(APIView):
+    def get(self, request, format = None):
+        selected_target = request.GET["selected_target"]
+        data_dict = MACD.main(selected_target)
+        # 還需要調整取出之後的東西，放進 macd_result
         print("data_dict", data_dict)
         return( Response( data_dict ) )
 

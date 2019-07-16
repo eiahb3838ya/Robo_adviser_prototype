@@ -1,0 +1,75 @@
+{% extends "adviser_base.html" %}
+
+
+{% block resultContent %}
+<div class="container">
+
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>you have selected target <strong>{{selected_target}}</strong> </h2>
+                        <h2>you have selected strategy <strong>{{selected_target}}</strong> </h2>
+                    </div>
+                    <div class="row" id="line_fig"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block contentJS %}
+<script>
+    $(document).ready(function(){
+        var endpoint = "{% url 'adviser:api_macd_chart_return' %}"
+        var Date =  RSI = MACD = []
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{
+                selected_target:"{{selected_target}}"
+            },
+            success:function(data){
+                //要加工
+                prepareChart();
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+        function prepareChart(){
+            var trace1 = {
+                mode: 'lines',
+                x: Date,
+                y: RSI,
+            };
+            var trace2 = {
+                mode: 'lines',
+                x: Date,
+                y: MACD,
+            };
+            var data = [ trace1, trace2 ];
+            var layout = {
+              title:"MACD & RSI"
+            };
+
+            Plotly.newPlot('line_fig', data, layout);
+        };
+    });
+</script>
+{% endblock %}
+
+
+
