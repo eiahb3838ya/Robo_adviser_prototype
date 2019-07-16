@@ -25,7 +25,14 @@
 
 <script>
     $(document).ready(function(){
-        var endpoint = "{% url 'adviser:api_smawma_table_data' %}"
+        {% if selected_strategy == "smawma" %}
+            var endpoint = "{% url 'adviser:api_smawma_table_data' %}"
+        {% endif %}
+
+        {% if selected_strategy == "bbandma" %}
+            var endpoint = "{% url 'adviser:api_bbandma_table_data' %}"
+        {% endif %}
+
         var selected_target = columns =  result_table_json = []
         $.ajax({
             method:"GET",
