@@ -9,12 +9,14 @@ urlpatterns = [
     path('smawma_result/', views.smawma_result, name='smawma_result'),
     path('r_strategy_result/', views.r_strategy_result,name='r_strategy_result'),
     path('macd_result/', views.macd_result,name='macd_result'),
+    path('rsi_result/', views.rsi_result,name='rsi_result'),
 
     path('debuger_result1/', views.debuger_result1,name='debuger_result1'),
 
 
     path('api/from_r/chart/return',views.StrategyFromRReturnData.as_view(),name="api_chart_return_data"),
-    path('api/macd/chart/return',views.StrategyMACDReturnData.as_view(),name="api_macd_chart_return"),
+    path('api/macd/table/all',views.StrategyMACDReturnData.as_view(),name="api_macd_table_data"),
+    path('api/rsi/table/all',views.StrategyRSIReturnData.as_view(),name="api_rsi_table_data"),
 
     path('api/smawma/table/all',views.StrategySMAWMATableData.as_view(),name="api_smawma_table_data"),
     path('api/bbandma/table/all',views.StrategyBBandMATableData.as_view(),name="api_bbandma_table_data"),

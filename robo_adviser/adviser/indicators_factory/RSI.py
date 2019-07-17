@@ -4,7 +4,9 @@ import numpy as np
 import pandas as pd
 
 def main(selected_target):
-    STRATEGY_NAME="MACD"
+
+
+    STRATEGY_NAME="RSI"
 
     # close the warning
     r.options(warn=-1)
@@ -17,7 +19,7 @@ def main(selected_target):
 
     # call r file
     r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy')")
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy/strategy_macd.R', local = TRUE)")
+    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy/strategy_rsi.R', local = TRUE)")
 
     # get the result we wanted
     readDataFrame = r['readDataFrame']

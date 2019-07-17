@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse
-from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r,MACD
+from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r,MACD, RSI
 from rest_framework.response import Response
 from rest_framework.views import APIView
 import json
+import pandas as pd
 # Create your views here.
 
 def start(request):
@@ -46,6 +47,14 @@ def macd_result(request):
         print("error")
     return (render(request, 'macd_result.html', locals()))
 
+def rsi_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'rsi'
+    except:
+        print("error")
+    return (render(request, 'rsi_result.html', locals()))
+
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
@@ -65,14 +74,68 @@ class StrategyFromRReturnData(APIView):
         print("data_dict", data_dict)
         return( Response( data_dict ) )
 
+
+# strategy from Azar's R code
 class StrategyMACDReturnData(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
         data_dict = MACD.main(selected_target)
-        # 還需要調整取出之後的東西，放進 macd_result
-        print("data_dict", data_dict)
-        return( Response( data_dict ) )
 
+        # some adjust for to_json properly
+        df_to_display = data_dict['df']
+        df_to_display = df_to_display.rename({'index': 'Date'}, axis=1)
+        df_to_display = df_to_display.set_index('Date', drop=False)
+        df_to_display.index = pd.DatetimeIndex(df_to_display.index)
+        df_to_display = df_to_display.fillna('0')
+
+        # prepare data for js
+        result_table_dict = df_to_display.to_dict(orient='records')
+        result_table_json = df_to_display.to_json(orient='records')
+
+        columns_dict = [{'field': f, 'title': f} for f in df_to_display.columns]
+        columns_json = json.dumps(columns_dict)
+
+        data = {
+            "selected_target": selected_target,
+            "selected_strategy": "macd",
+            "result_table_dict": result_table_dict,
+            "result_table_json": result_table_json,
+            "columns_dict": columns_dict,
+            "columns_json": columns_json
+        }
+        return (Response(data))
+
+
+class StrategyRSIReturnData(APIView):
+    def get(self, request, format = None):
+        selected_target = request.GET["selected_target"]
+        data_dict = RSI.main(selected_target)
+
+        # some adjust for to_json properly
+        df_to_display = data_dict['df']
+        df_to_display = df_to_display.rename({'index': 'Date'}, axis=1)
+        df_to_display = df_to_display.set_index('Date', drop=False)
+        df_to_display.index = pd.DatetimeIndex(df_to_display.index)
+        df_to_display = df_to_display.fillna('0')
+
+        # prepare data for js
+        result_table_dict = df_to_display.to_dict(orient='records')
+        result_table_json = df_to_display.to_json(orient='records')
+
+        columns_dict = [{'field': f, 'title': f} for f in df_to_display.columns]
+        columns_json = json.dumps(columns_dict)
+
+        data = {
+            "selected_target": selected_target,
+            "selected_strategy": "macd",
+            "result_table_dict": result_table_dict,
+            "result_table_json": result_table_json,
+            "columns_dict": columns_dict,
+            "columns_json": columns_json
+        }
+        return (Response(data))
+
+# self defined strategy from the book of Dr.Lin
 class StrategySMAWMATableData(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
@@ -109,6 +172,7 @@ class StrategySMAWMATableData(APIView):
             "columns": columns,
         }
         return( Response( data ) )
+
 class StrategyBBandMATableData(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
