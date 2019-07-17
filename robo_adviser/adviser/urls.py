@@ -1,5 +1,6 @@
 from django.urls import path,include
 from . import views
+from .apis import table_data,chart_data
 from django.contrib.auth import views as auth_views
 
 app_name = 'adviser'
@@ -14,11 +15,11 @@ urlpatterns = [
     path('debuger_result1/', views.debuger_result1,name='debuger_result1'),
 
 
-    path('api/from_r/chart/return',views.StrategyFromRReturnData.as_view(),name="api_chart_return_data"),
-    path('api/macd/table/all',views.StrategyMACDReturnData.as_view(),name="api_macd_table_data"),
-    path('api/rsi/table/all',views.StrategyRSIReturnData.as_view(),name="api_rsi_table_data"),
+    path('api/chart/from_r/return', chart_data.StrategyFromRReturnData.as_view(),name="api_chart_return_data"),
 
-    path('api/smawma/table/all',views.StrategySMAWMATableData.as_view(),name="api_smawma_table_data"),
-    path('api/bbandma/table/all',views.StrategyBBandMATableData.as_view(),name="api_bbandma_table_data"),
+    path('api/macd/table/all', table_data.StrategyMACDTableData.as_view(),name="api_macd_table_data"),
+    path('api/rsi/table/all', table_data.StrategyRSITableData.as_view(),name="api_rsi_table_data"),
+    path('api/smawma/table/all', table_data.StrategySMAWMATableData.as_view(),name="api_smawma_table_data"),
+    path('api/bbandma/table/all', table_data.StrategyBBandMATableData.as_view(),name="api_bbandma_table_data"),
 
 ]

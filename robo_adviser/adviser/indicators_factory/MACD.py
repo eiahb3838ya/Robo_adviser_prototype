@@ -37,10 +37,10 @@ def main(selected_target):
     MACD_alldf = pandas2ri.ri2py_dataframe(MACD_alldf)
 
     # do something to output
-    data_dict= {
+    data_dict = {
         "df": MACD_alldf
     }
-    return(data_dict)
+    return( data_dict )
 
 if __name__ == "__main__":
     main("2330.TW")

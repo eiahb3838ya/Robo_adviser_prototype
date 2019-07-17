@@ -73,7 +73,6 @@ class TargetChartData(APIView):
         df = get_history_data(user_picked)
         article_data=df.index
         article_labels=df.Close
-        print("user_picked in web api:",user_picked)
         data={
             "article_data" : article_data,
             "article_labels" : article_labels

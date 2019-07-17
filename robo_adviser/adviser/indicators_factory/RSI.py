@@ -43,7 +43,7 @@ def main(selected_target):
         "df": MACD_alldf
     }
     return(data_dict)
-
+#
 if __name__ == "__main__":
     main("2330.TW")
 
