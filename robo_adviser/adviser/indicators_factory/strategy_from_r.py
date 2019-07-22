@@ -18,7 +18,7 @@ def main(selected_target):
     robjects.r('''StockCode <- "{}" '''.format(StockCode))
 
     # call r file
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/Trading_Azar_TO_Evan.R', local = TRUE)")
+    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/test_r_strategy/Trading_Azar_TO_Evan.R', local = TRUE)")
 
     # get the result we wanted
     Portfolio_CumRet_tb=r['Portfolio_CumRet_tb']

@@ -19,6 +19,8 @@ def main(selected_target):
     r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy')")
     r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy/strategy_macd.R', local = TRUE)")
 
+
+
     # get the result we wanted
     readDataFrame = r['readDataFrame']
     # get the functioin object in R
@@ -28,17 +30,23 @@ def main(selected_target):
     get_alldf = r['get_alldf']
 
     Select_DT = get_SelectDT(readDataFrame,input)
-    Ret_DT = getRet_DT(Select_DT)
+    targetRet_DT = getRet_DT(Select_DT)
+    targetRet = pandas2ri.ri2py_dataframe(targetRet_DT)
 
-    # CumRet_DT = getCumRet_DT(Ret_DT)
-    # CumRet_DT = pandas2ri.ri2py_dataframe(CumRet_DT)
+    targetCumRet_DT = getCumRet_DT(targetRet_DT)
+    targetCumRet = pandas2ri.ri2py_dataframe(targetCumRet_DT)
 
-    MACD_alldf = get_alldf(Select_DT, Ret_DT)
-    MACD_alldf = pandas2ri.ri2py_dataframe(MACD_alldf)
+    alldf = get_alldf(Select_DT, targetRet_DT)
+    alldf = pandas2ri.ri2py_dataframe(alldf)
 
     # do something to output
     data_dict = {
-        "df": MACD_alldf
+        "df": alldf,
+        "targetRet": targetRet,
+        "targetCumRet": targetCumRet,
+        "strategyRet": alldf['Equity'],
+
+
     }
     return( data_dict )
 

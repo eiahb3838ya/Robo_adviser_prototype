@@ -5,19 +5,11 @@ import json
 import pandas as pd
 
 
-class StrategyFromRReturnData(APIView):
+
+class StrategyMACDChartPlot(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
-        print("we are now in StrategyFromRReturnData:", selected_target)
-
-        data_dict = strategy_from_r.main(selected_target)
-        return( Response( data_dict ) )
-
-
-class StrategyMACDChartData(APIView):
-    def get(self, request, format = None):
-        selected_target = request.GET["selected_target"]
-        print("we are now in StrategyMACDReturnChart:", selected_target)
+        print("we are now in StrategyMACDChartPlot:", selected_target)
         data_dict = MACD.main(selected_target)
 
         # get df_to_display and index for the df later
@@ -33,12 +25,14 @@ class StrategyMACDChartData(APIView):
         # call R function
         strategyCumRet, strategyDrawdowns = data_generator.getCumRet_Drawdowns(strategyRet_df)
 
+        # fill na
         targetRet = targetRet.fillna('0')
         targetCumRet = targetCumRet.fillna('0')
         strategyRet = strategyRet.fillna('0')
         strategyCumRet = strategyCumRet.fillna('0')
         strategyDrawdowns = strategyDrawdowns.fillna('0')
 
+        # get the Series
         targetRet = targetRet.iloc[:, 1]
         targetCumRet = targetCumRet.iloc[:, 1]
         strategyCumRet = strategyCumRet.iloc[:, 1]
@@ -59,4 +53,3 @@ class StrategyMACDChartData(APIView):
         }
 
         return( Response( data ) )
-    # def get

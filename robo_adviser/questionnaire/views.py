@@ -1,16 +1,20 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
-# Create your views here.
-# from robo_adviser.adviser.indicators_factory.data_generator import get_history_data
 
+import requests,sys,os
+import pandas as pd
+
+# from robo_adviser .adviser.indicators_factory import data_generator
 from pandas_datareader import data as web
 import datetime as dt
 import yfinance as yf
-import requests
-import pandas as pd
+
 
 yf.pdr_override()
+
+
+
 # some how i cant do from robo_adviser.adviser.indicators_factory.data_generator import get_history_data
 # to be solved
 # https://stackoverflow.com/questions/46444135/how-to-import-models-from-one-app-to-another-app-in-django
@@ -66,7 +70,7 @@ def form1(request):
 def form2(request):
     return(render(request, "form2.html"))
 
-
+#
 class TargetChartData(APIView):
     def get(self, request, format = None):
         user_picked = request.GET['user_picked']

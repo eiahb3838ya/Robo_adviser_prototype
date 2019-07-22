@@ -4,6 +4,9 @@ import requests
 from pandas_datareader import data as web
 import datetime as dt
 import yfinance as yf
+from rpy2 import robjects
+from rpy2.robjects import r, pandas2ri
+
 
 yf.pdr_override()
 def get_stock_list():
@@ -28,6 +31,36 @@ def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datet
     except:
         result_df = web.get_data_yahoo([target], startdate, enddate)
     return(result_df)
+
+
+def getCumRet_Drawdowns(strategyRet_df):
+    print("get CumRet and Drawdowns")
+    # close the warning
+    r.options(warn=-1)
+    pandas2ri.activate()
+    # prepare data type for r code
+    strategyRet_ri = pandas2ri.py2ri(strategyRet_df)
+    strategyRet_DT = r('as.data.table')(strategyRet_ri)
+
+    # call r file
+    r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy')")
+    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy/source_server.R', local = TRUE)")
+
+    # get the r functions
+    getCumRet_DT = r['getCumRet_DT']
+    getDrawdowns = r['getDrawdowns']
+
+    # use r function
+    strategyCumRet_DT = getCumRet_DT(strategyRet_DT)
+    strategyDrawdowns_DT = getDrawdowns(strategyRet_DT)
+
+    # transform to python object
+    strategyCumRet = pandas2ri.ri2py_dataframe(strategyCumRet_DT)
+    strategyDrawdowns = pandas2ri.ri2py_dataframe(strategyDrawdowns_DT)
+
+    return(strategyCumRet,strategyDrawdowns)
+
+
 
 
 def roical(buyprice, sellprice, winRate):
