@@ -40,24 +40,32 @@ def r_strategy_result(request):
     return (render(request, 'r_strategy_result.html', locals()))
 
 
-def macd_result(request):
+def macd_table_result(request):
     try:
         selected_target = request.GET['stockpicker']
         selected_strategy = 'macd'
     except:
         print("error")
-    return (render(request, 'macd_result.html', locals()))
+    return (render(request, 'macd_table_result.html', locals()))
 
-def rsi_result(request):
+def rsi_table_result(request):
     try:
         selected_target = request.GET['stockpicker']
         selected_strategy = 'rsi'
     except:
         print("error")
-    return (render(request, 'rsi_result.html', locals()))
+    return (render(request, 'rsi_table_result.html', locals()))
 
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
     return (render(request, 'result1.html', locals()))
 
+
+def macd_plot_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'macd'
+    except:
+        print("error")
+    return (render(request, 'macd_plotjs_result.html', locals()))

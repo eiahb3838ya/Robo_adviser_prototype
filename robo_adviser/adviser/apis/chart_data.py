@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import json
 import pandas as pd
+import numpy as np
 
 
 class StrategyFromRReturnData(APIView):
@@ -23,9 +24,24 @@ class StrategyMACDChartData(APIView):
         # get df_to_display and index for the df later
         df_to_display = data_dict['df']
         index = df_to_display['index']
+        signal = df_to_display.iloc[:, 3]
+        price=np.asarray(df_to_display.iloc[:, 1])
+        print(price)
+        # buy signal
+        buy_signal_df = df_to_display.loc[signal == 1]
+        buyDate=buy_signal_df.iloc[:, 0]
+        buyPrice=buy_signal_df.iloc[:, 1]
+
+        # sell signal
+        sell_signal_df= df_to_display.loc[signal == -1]
+        sellDate = sell_signal_df.iloc[:, 0]
+        sellPrice = sell_signal_df.iloc[:, 1]
+
+
         # get other things
         targetRet = data_dict['targetRet']
         targetCumRet = data_dict['targetCumRet']
+
         strategyRet = data_dict['strategyRet']
 
         # prepare the df for R code
@@ -55,6 +71,11 @@ class StrategyMACDChartData(APIView):
             "strategyDrawdowns": strategyDrawdowns,
             "strategyCumRet": strategyCumRet,
 
+            "price":price,
+            "buyDate":buyDate,
+            "buyPrice":buyPrice,
+            "sellDate":sellDate,
+            "sellPrice":sellPrice,
 
         }
 
