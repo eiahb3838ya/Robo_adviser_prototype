@@ -19,6 +19,7 @@ class StrategyMACDChartData(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
         print("we are now in StrategyMACDChartData:", selected_target)
+
         data_dict = MACD.main(selected_target)
 
         # get df_to_display and index for the df later

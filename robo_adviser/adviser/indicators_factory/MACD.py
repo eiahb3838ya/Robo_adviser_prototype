@@ -21,7 +21,7 @@ def main(selected_target):
 
     # call r file
     r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/strategy_macd.R', local = TRUE)")
+    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/strategy_{}.R', local = TRUE)".format(STRATEGY_NAME.lower()))
 
     print("getting the history data")
     history_data_df=get_history_data(target='all')

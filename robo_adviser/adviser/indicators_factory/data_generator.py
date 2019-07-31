@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+
 import requests
 from pandas_datareader import data as web
 import datetime as dt
@@ -17,35 +18,73 @@ def get_stock_list():
     stock_id = stock_list_df['STOCK_ID']
     return(stock_list_df,stock_id)
 
-def get_history_data(target,startdate = "2015/01/01",enddate= "2020/01/01"):
+def get_history_data(target,startdate = "2015/01/01",enddate= dt.date.today().strftime("%Y/%m/%d")):
+    readData_df = pd.DataFrame()
+    startDownloadDate = "2015/01/01"
+    todayDate = dt.date.today().strftime("%Y/%m/%d")
     try:
-        if len(target) >= 4 :
-            print(target)
-            payload = {'STOCK_ID': target[0:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
+        readData_df = pd.read_pickle("./history_price.pkl")
+    except Exception as e:
+        print(str(e))
+    lastBDate = pd.bdate_range(end=todayDate, periods=1, freq='B')[0]
+
+    if len(readData_df) != 0:
+        lastHDate = readData_df.index[-1]
+    else:
+        print("there is no history_price.pkl")
+        result_df = load_history_data_from_api('all', startDownloadDate, todayDate)
+        result_df.to_pickle("./history_price.pkl")
+        if target == 'all':
+            return (result_df.loc[startdate:enddate])
+        else:
+            select_code_result = result_df.loc[result_df['STOCK_CODE'] == target[0:4]]
+            select_date_result = select_code_result.loc[startdate:enddate]
+            return (select_date_result)
+    if np.datetime64(lastHDate) < np.datetime64(lastBDate) - np.timedelta64(1, 'D'):
+        print("history_price.pkl is not in latest update")
+        print("lastHDate", lastHDate, "lastBDate", lastBDate)
+        result_df = load_history_data_from_api('all', startDownloadDate, todayDate)
+        result_df.to_pickle("./history_price.pkl")
+        if target == 'all':
+            return (result_df.loc[startdate:enddate])
+        else:
+            select_code_result = result_df.loc[result_df['STOCK_CODE'] == target[0:4]]
+            select_date_result = select_code_result.loc[startdate:enddate]
+            return (select_date_result)
+    else:
+        print("history_price.pkl is in latest update")
+        print("lastHDate",lastHDate,"lastBDate",lastBDate)
+        if target == 'all':
+            return (readData_df.loc[startdate:enddate])
+        else:
+            select_code_result = readData_df.loc[readData_df['STOCK_CODE'] == target[0:4]]
+            select_date_result = select_code_result.loc[startdate:enddate]
+            return (select_date_result)
+
+def load_history_data_from_api(target,startdate,enddate):
+    if len(target) >= 4 :
+        print(target)
+        payload = {'STOCK_ID': target[0:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
+               'KLINE_DATETIME_E': enddate}
+
+    elif target == 'all':
+        # _,listsss=get_stock_list()
+        # listsss=listsss[0:10].append('2330')
+        # print(listsss)
+        listsss=[]
+        payload = {'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
                    'KLINE_DATETIME_E': enddate}
-
-        elif target == 'all':
-            # _,listsss=get_stock_list()
-            # listsss=listsss[0:10].append('2330')
-            # print(listsss)
-            listsss=[]
-            payload = {'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
-                       'KLINE_DATETIME_E': enddate}
-        response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice2", params=payload)
-        response_dic = response.json()
-        result_df = pd.DataFrame.from_dict(response_dic['GridData'])
-        result_df = result_df.set_index("KLINE_DATETIME")
-        result_df = result_df.drop(axis=0, columns=["KLINE_PERIOD"])
-        result_df.columns = ['Close', 'High', 'Low', 'Open', "STOCK_CODE", 'Volume']
-        result_df = result_df[["STOCK_CODE", 'Close', 'High', 'Low', 'Open', 'Volume']]
-        result_df[['Close', 'High', 'Low', 'Open', 'Volume']] = result_df[
-            ['Close', 'High', 'Low', 'Open', 'Volume']].astype(float)
-        result_df.index = pd.DatetimeIndex(result_df.index.rename("Date"))
-    except Exception :
-        print(Exception)
-        # result_df = web.get_data_yahoo([target], startdate, enddate)
+    response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice2", params=payload)
+    response_dic = response.json()
+    result_df = pd.DataFrame.from_dict(response_dic['GridData'])
+    result_df = result_df.set_index("KLINE_DATETIME")
+    result_df = result_df.drop(axis=0, columns=["KLINE_PERIOD"])
+    result_df.columns = ['Close', 'High', 'Low', 'Open', "STOCK_CODE", 'Volume']
+    result_df = result_df[["STOCK_CODE", 'Close', 'High', 'Low', 'Open', 'Volume']]
+    result_df[['Close', 'High', 'Low', 'Open', 'Volume']] = result_df[
+        ['Close', 'High', 'Low', 'Open', 'Volume']].astype(float)
+    result_df.index = pd.DatetimeIndex(result_df.index.rename("Date"))
     return(result_df)
-
 
 
 def getCumRet_Drawdowns(strategyRet_df):
@@ -92,3 +131,9 @@ def winfactor(buyprice, sellprice, loss, win):
     else:
         loss-=payoff
     return(loss,win)
+
+
+if __name__ == "__main__":
+    result_df = get_history_data("all")
+    print(result_df)
+
