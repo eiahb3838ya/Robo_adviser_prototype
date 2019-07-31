@@ -1,0 +1,1 @@
+from .data_generator import get_history_data

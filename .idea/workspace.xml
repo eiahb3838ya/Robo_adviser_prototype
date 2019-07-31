@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49a69e20-d2dd-4fde-bd8f-ef39c4bef682" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_table_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/templates/rsi_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/templates/rsi_table_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/templates/single_target_result.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="73" column="25" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="25" />
+            <state relative-caret-position="-95">
+              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -35,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+            <state relative-caret-position="240">
+              <caret line="59" column="40" lean-forward="true" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -44,8 +41,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="46" column="36" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="36" />
+            <state relative-caret-position="-956">
+              <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -56,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+            <state relative-caret-position="395">
+              <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -84,6 +93,7 @@
       <find>sign in</find>
       <find>auth</find>
       <find>&quot; &quot;</find>
+      <find>alert</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
@@ -105,7 +115,6 @@
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/adviser_base.py" />
         <option value="$PROJECT_DIR$/robo_adviser/robo_adviser/urls.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/result1.py" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/__init__.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generater.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/start.html" />
         <option value="$PROJECT_DIR$/robo_adviser/questionnaire/static/css/awesome_bootstrap_checkbox.css" />
@@ -138,20 +147,21 @@
         <option value="$PROJECT_DIR$/robo_adviser/questionnaire/views.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_result.html" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/apis/chart_plot.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/single_target_result.html" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/views.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/urls.py" />
         <option value="$PROJECT_DIR$/robo_adviser/questionnaire/templates/form1.html" />
-        <option value="$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/__init__.py" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" />
         <option value="$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py" />
+        <option value="$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-14" />
+    <option name="x" value="-18" />
     <option name="width" value="1080" />
     <option name="height" value="1746" />
   </component>
@@ -161,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,6 +233,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,13 +276,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/robo_adviser/adviser" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="data_generator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Robo_adviser_prototype" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -369,10 +400,12 @@
       <item itemvalue="Python.table_data" />
       <item itemvalue="Python.views" />
       <item itemvalue="Python.MACD" />
+      <item itemvalue="Python.data_generator" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.MACD" />
+        <item itemvalue="Python.data_generator" />
         <item itemvalue="Python.views" />
         <item itemvalue="Python.table_data" />
       </list>
@@ -501,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563784522684</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="display the chart for single strategy &#10;done the for strategy MACD&#10;six charts displayed using ajax and plotly with js">
+      <created>1563792753232</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1563792753232</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -515,21 +555,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1228" height="783" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.38190955" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2118928" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29709035" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49916247" weight="0.330781" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49916247" visible="true" weight="0.4517611" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47320062" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32924962" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49916247" weight="0.32771823" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49916247" weight="0.53598773" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49916247" weight="0.045941807" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008375" side_tool="true" weight="0.32618684" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.92036754" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32159266" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -613,20 +654,17 @@
     <MESSAGE value="MACD and RSI strategy &#10;display table of strategy result to frontend&#10;create web api of each strategy and call service on document ready" />
     <MESSAGE value="move restful api to adviser.apis" />
     <MESSAGE value="StrategyMACDChartData done and debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="StrategyMACDChartData done and debug" />
+    <MESSAGE value="display the chart for single strategy &#10;done the for strategy MACD&#10;six charts displayed using ajax and plotly with js" />
+    <option name="LAST_COMMIT_MESSAGE" value="display the chart for single strategy &#10;done the for strategy MACD&#10;six charts displayed using ajax and plotly with js" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="Win_DT.nrow" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/css/dashboard.css" />
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/js/dashboard.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/css/simple-sidebar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/questionnaire/static/css/responsive_table_input_matrix.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -659,16 +697,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/r_strategy/Trading_Azar_TO_Evan.R" />
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/BBandMA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -725,16 +753,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/api.py" />
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/SMAWMA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-722">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/robo_adviser/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -774,16 +792,6 @@
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/RSI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="47" column="17" selection-start-line="46" selection-end-line="47" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -836,23 +844,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/single_target_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/single_target_result.html" />
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/single_target_result_using_ajax.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -904,26 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="46" column="36" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/apis/table_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-209">
@@ -938,17 +910,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/SMAWMA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/BBandMA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-603">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/env_djangoframework/Lib/site-packages/rpy2-2.9.4-py3.6-win-amd64.egg/rpy2/robjects/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="329" column="8" selection-start-line="329" selection-start-column="8" selection-end-line="329" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/env_djangoframework/Lib/site-packages/django/core/servers/basehttp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/RSI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/strategy_from_r.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/MACD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-956">
+          <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/templates/macd_plotjs_result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+        <state relative-caret-position="240">
+          <caret line="59" column="40" lean-forward="true" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/indicators_factory/data_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/robo_adviser/adviser/apis/chart_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="25" />
+        <state relative-caret-position="-95">
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>

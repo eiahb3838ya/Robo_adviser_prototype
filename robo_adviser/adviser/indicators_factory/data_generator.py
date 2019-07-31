@@ -17,20 +17,35 @@ def get_stock_list():
     stock_id = stock_list_df['STOCK_ID']
     return(stock_list_df,stock_id)
 
-def get_history_data(target,startdate= dt.datetime(2015, 1, 1),enddate= dt.datetime(2020, 1, 1)):
+def get_history_data(target,startdate = "2015/01/01",enddate= "2020/01/01"):
     try:
-        payload = {'STOCK_ID': target[:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': '2015/01/01 00:00:00',
-                   'KLINE_DATETIME_E': '2020/01/01 12:00:00'}
+        if len(target) >= 4 :
+            print(target)
+            payload = {'STOCK_ID': target[0:4], 'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
+                   'KLINE_DATETIME_E': enddate}
+
+        elif target == 'all':
+            # _,listsss=get_stock_list()
+            # listsss=listsss[0:10].append('2330')
+            # print(listsss)
+            listsss=[]
+            payload = {'KLINE_PERIOD': 'DAY', 'KLINE_DATETIME_S': startdate,
+                       'KLINE_DATETIME_E': enddate}
         response = requests.post("http://www.xiqicapital.com/FUT/Api/Market/QryStockPrice2", params=payload)
         response_dic = response.json()
         result_df = pd.DataFrame.from_dict(response_dic['GridData'])
         result_df = result_df.set_index("KLINE_DATETIME")
-        result_df = result_df.drop(axis=0, columns=["STOCK_ID", "KLINE_PERIOD"]).astype(float)
-        result_df.columns = ['Close', 'High', 'Low', 'Open', 'Volume']
+        result_df = result_df.drop(axis=0, columns=["KLINE_PERIOD"])
+        result_df.columns = ['Close', 'High', 'Low', 'Open', "STOCK_CODE", 'Volume']
+        result_df = result_df[["STOCK_CODE", 'Close', 'High', 'Low', 'Open', 'Volume']]
+        result_df[['Close', 'High', 'Low', 'Open', 'Volume']] = result_df[
+            ['Close', 'High', 'Low', 'Open', 'Volume']].astype(float)
         result_df.index = pd.DatetimeIndex(result_df.index.rename("Date"))
-    except:
-        result_df = web.get_data_yahoo([target], startdate, enddate)
+    except Exception :
+        print(Exception)
+        # result_df = web.get_data_yahoo([target], startdate, enddate)
     return(result_df)
+
 
 
 def getCumRet_Drawdowns(strategyRet_df):
@@ -43,8 +58,8 @@ def getCumRet_Drawdowns(strategyRet_df):
     strategyRet_DT = r('as.data.table')(strategyRet_ri)
 
     # call r file
-    r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy')")
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/nice_oop_strategy/source_server.R', local = TRUE)")
+    r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
+    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/source_server.R', local = TRUE)")
 
     # get the r functions
     getCumRet_DT = r['getCumRet_DT']

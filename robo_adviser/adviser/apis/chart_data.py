@@ -26,7 +26,7 @@ class StrategyMACDChartData(APIView):
         index = df_to_display['index']
         signal = df_to_display.iloc[:, 3]
         price=np.asarray(df_to_display.iloc[:, 1])
-        print(price)
+
         # buy signal
         buy_signal_df = df_to_display.loc[signal == 1]
         buyDate=buy_signal_df.iloc[:, 0]
