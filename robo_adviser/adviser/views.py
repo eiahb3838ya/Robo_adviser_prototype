@@ -69,3 +69,11 @@ def macd_plot_result(request):
     except:
         print("error")
     return (render(request, 'macd_plotjs_result.html', locals()))
+
+def rsi_plot_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'rsi'
+    except:
+        print("error")
+    return (render(request, 'rsi_plotjs_result.html', locals()))

@@ -1,14 +1,11 @@
 from rpy2 import robjects
 from rpy2.robjects import r, pandas2ri
 
-
-import sys
-import numpy as np
-import pandas as pd
 try:
     from .data_generator import get_history_data
 except:
     pass
+
 def main(selected_target):
     STRATEGY_NAME = "MACD"
     pandas2ri.activate()
@@ -21,8 +18,6 @@ def main(selected_target):
     EndDate = ""
 
     print("we are in strategy {} and the StockCode is {}".format(STRATEGY_NAME, StockCode))
-    input = robjects.r('''list(listID="{}",period="{}",StartDate="{}",EndDate="{}")'''
-                       .format(StockCode, "Quarter", "2015-01-02", "2019-06-28"))
 
     # call r file
     r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
@@ -32,11 +27,6 @@ def main(selected_target):
     history_data_df=get_history_data(target='all')
     history_data_df['Date']=history_data_df.index
     history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
-
-    # history_data_df2 = get_history_data(target='9945')
-    # history_data_df2['Date'] = history_data_df2.index
-    # history_data_df2 = history_data_df2[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
-    # history_data_df_c = pd.concat([history_data_df,history_data_df2],axis=0)
 
     readDataFrame = pandas2ri.py2ri(history_data_df)
 

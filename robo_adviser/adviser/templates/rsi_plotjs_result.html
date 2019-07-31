@@ -1,0 +1,105 @@
+{% extends "adviser_base.html" %}
+
+
+{% block resultContent %}
+<div class="container">
+
+    <div class="row">
+        <h2>you have selected target <strong>{{selected_target}}</strong> </h2>
+    </div>
+    <div class="row">
+        <div class="col-12"><div id="fig_price"></div></div>
+        <div class="col"><div id="fig_targetRet"></div></div>
+        <div class="col"><div id="fig_targetCumRet"></div></div>
+        <div class="w-100"></div>
+        <div class="col"><div id="fig_strategyRet"></div></div>
+        <div class="col"><div id="fig_strategyCumRet"></div></div>
+        <div class="w-100"></div>
+        <div class="col"><div id="fig_strategyDrawdowns"></div></div>
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block contentJS %}
+<script>
+    $(document).ready(function(){
+        var endpoint = "{% url 'adviser:api_rsi_chart_data' %}"
+        var Date =  targetRet = targetCumRet = strategyRet = strategyDrawdowns = strategyCumRet = [];
+        var price = buyDate = buyPrice = sellDate = sellPrice = [];
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{
+                selected_target:"{{selected_target}}"
+            },
+            success:function(data){
+                Date = data.Date;
+                targetRet = data.targetRet;
+                targetCumRet = data.targetCumRet;
+                strategyRet = data.strategyRet;
+                strategyCumRet = data.strategyCumRet;
+                strategyDrawdowns = data.strategyDrawdowns;
+
+                price = data.price
+                buyDate = data.buyDate;
+                buyPrice = data.buyPrice;
+                sellDate = data.sellDate;
+                sellPrice = data.sellPrice;
+
+                preparePriceChart();
+                prepareChart(Date,targetRet,'fig_targetRet','targetRet');
+                prepareChart(Date,targetCumRet,'fig_targetCumRet','targetCumRet');
+                prepareChart(Date,strategyRet,'fig_strategyRet','strategyRet');
+                prepareChart(Date,strategyDrawdowns,'fig_strategyDrawdowns','strategyDrawdowns');
+                prepareChart(Date,strategyCumRet,'fig_strategyCumRet','strategyCumRet');
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+        function preparePriceChart(){
+            var PriceLine = {
+                mode: 'lines',
+                x: Date,
+                y: price,
+            };
+            var BuyScatter = {
+                mode: 'markers',
+                type: 'scatter',
+                x: buyDate,
+                y: buyPrice,
+            };
+            var SellScatter = {
+                mode: 'markers',
+                type: 'scatter',
+                x: sellDate,
+                y: sellPrice,
+            };
+            var data = [ PriceLine , BuyScatter , SellScatter];
+            var layout = {
+              title:"Price"
+            };
+            Plotly.newPlot("fig_price", data, layout);
+        };
+
+        function prepareChart(Date,Y,div_id,fig_name){
+            var trace1 = {
+                mode: 'lines',
+                x: Date,
+                y: Y,
+            };
+            var data = [ trace1 ];
+            var layout = {
+              title:fig_name
+            };
+            Plotly.newPlot(div_id, data, layout);
+        };
+    });
+</script>
+{% endblock %}
