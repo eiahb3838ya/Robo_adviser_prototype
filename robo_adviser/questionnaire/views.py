@@ -65,7 +65,7 @@ def form1(request):
     context = {
         "stock_list":stock_list,
     }
-    return(render(request, "form1.html",context))
+    return(render(request, "singleStrategyForm.html",context))
 
 def form2(request):
     return(render(request, "form2.html"))

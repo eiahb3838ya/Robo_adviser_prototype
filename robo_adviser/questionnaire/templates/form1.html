@@ -3,6 +3,7 @@
 
 
 {% block contentInHead %}
+
 {% endblock %}
 
 {% block questionnaireContent %}
@@ -32,7 +33,6 @@
                     <div class="btn-group btn-group">
                         <button class= "btn" type="submit" name="action" value="smawma_result" formaction="{% url 'adviser:smawma_result' %}" >smawma</button>
                         <button class= "btn" type="submit" name="action" value="bbandma_result" formaction="{% url 'adviser:bbandma_result' %}">bbandma</button>
-                        <button class= "btn" type="submit" name="action" value="r_strategy_result" formaction="{% url 'adviser:r_strategy_result' %}">r_strategy_result</button>
                         <button class= "btn" type="submit" name="action" value="macd_result" formaction="{% url 'adviser:macd_result' %}">macd_result</button>
                         <button class= "btn" type="submit" name="action" value="rsi_result" formaction="{% url 'adviser:rsi_result' %}">rsi_result</button>
                         <button class= "btn" type="submit" name="action" value="macd_plot_result" formaction="{% url 'adviser:macd_plot_result' %}">macd_plot_result</button>
