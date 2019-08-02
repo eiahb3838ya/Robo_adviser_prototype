@@ -6,15 +6,13 @@ import pandas as pd
 import numpy as np
 
 
-class StrategyFromRReturnData(APIView):
-    def get(self, request, format = None):
-        selected_target = request.GET["selected_target"]
-        print("we are now in StrategyFromRReturnData:", selected_target)
-
-        data_dict = strategy_from_r.main(selected_target)
-        return( Response( data_dict ) )
-
-
+# class StrategyFromRReturnData(APIView):
+#     def get(self, request, format = None):
+#         selected_target = request.GET["selected_target"]
+#         print("we are now in StrategyFromRReturnData:", selected_target)
+#
+#         data_dict = strategy_from_r.main(selected_target)
+#         return( Response( data_dict ) )
 class StrategyMACDChartData(APIView):
     def get(self, request, format = None):
         selected_target = request.GET["selected_target"]
@@ -129,7 +127,7 @@ class StrategyRSIChartData(APIView):
 
         data = {
             "selected_target": selected_target,
-            "selected_strategy": "macd",
+            "selected_strategy": "rsi",
             "Date": index,
             "targetRet": targetRet,
             "targetCumRet": targetCumRet,
@@ -144,5 +142,4 @@ class StrategyRSIChartData(APIView):
             "sellPrice": sellPrice,
 
         }
-
         return (Response(data))

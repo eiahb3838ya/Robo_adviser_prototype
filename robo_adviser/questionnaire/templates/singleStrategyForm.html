@@ -56,17 +56,27 @@
                                         <option >Option</option>
                                     </select>
                                 </div>
-
-                                <div class="form-group md-form">
-                                    <label class=""> TARGET </label><br><br>
-                                    <select class="selectpicker " name="stockpicker" id="stockpicker" data-live-search="true" data-width="100%" title="TARGET" data-size="8">
-                                        {% for a_stock in stock_list %}
-                                           <option >{{a_stock}}</option>
+                                <div class="form-group md-form selectpicker-div" >
+                                    <label class=""> STRATEGY </label><br><br>
+                                    <select class="selectpicker " name="strategypicker" id="strategypicker" data-width="100%" >
+                                        {% for a_strategy in strategy_list %}
+                                           <option value ="{{a_strategy}}">{{a_strategy.upper}}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
+                                <div class="form-group md-form selectpicker-div">
+                                    <label class=""> ASSET </label><br><br>
+                                    <select class="selectpicker " name="stockpicker" id="stockpicker" data-live-search="true" data-width="100%" data-size="8">
+                                        {% for a_stock in stock_list %}
+                                           <option>{{a_stock}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
                                 <button class="btn btn-light" type="reset">reset</button>
-                                <button class= "btn btn-primary" type="submit" name="action" value="macd_plot_result" formaction="{% url 'adviser:macd_plot_result' %}">macd_plot_result</button>
+                                <button class= "btn btn-primary" type="submit" name="action" value="go_to_table_result" formaction="{% url 'adviser:go_to_table_result' %}">table result</button>
+                                <button class= "btn btn-primary" type="submit" name="action" value="go_to_plot_result" formaction="{% url 'adviser:go_to_plot_result' %}">plot result</button>
+<!--                                <button class= "btn btn-primary" type="submit" name="action" value="macd_plot_result" formaction="{% url 'adviser:macd_plot_result' %}">macd_plot_result</button>-->
                             </div>
                         </div>
                         <div class="card-footer bg-transparent ">
@@ -88,6 +98,7 @@
 {% endblock %}
 
 {% block contentJS %}
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->

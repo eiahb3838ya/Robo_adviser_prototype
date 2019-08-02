@@ -7,21 +7,30 @@ app_name = 'adviser'
 urlpatterns = [
     path('', views.start, name='start'),
 
+    # ROUTER
+    path('plot_result/', views.go_to_plot_result, name='go_to_plot_result'),
+    path('table_result/',views.go_to_table_result, name='go_to_table_result'),
+
+    # DEBUG FOR FORM2
     path('debuger_result1/', views.debuger_result1, name='debuger_result1'),
-    path('bbandma_result/', views.bbandma_result, name='bbandma_result'),
-    path('smawma_result/', views.smawma_result, name='smawma_result'),
+
+    # SHOW TABLE RESULT
+    path('macd_table_result/', views.macd_table_result, name='macd_table_result'),
+    path('rsi_table_result/', views.rsi_table_result, name='rsi_table_result'),
+    path('bbandma_table_result/', views.bbandma_table_result, name='bbandma_table_result'),
+    path('smawma_table_result/', views.smawma_table_result, name='smawma_table_result'),
     # path('r_strategy_result/', views.r_strategy_result, name='r_strategy_result'),
 
-    path('macd_table_result/', views.macd_table_result, name='macd_result'),
-    path('rsi_table_result/', views.rsi_table_result, name='rsi_result'),
-
+    # SHOW PLOT RESULT
     path('macd_plot_result/', views.macd_plot_result, name='macd_plot_result'),
     path('rsi_plot_result/', views.rsi_plot_result, name='rsi_plot_result'),
 
+    # API CHART DATA
     # path('api/chart/from_r/return', chart_data.StrategyFromRReturnData.as_view(), name="api_chart_return_data"),
     path('api/macd/chart/all', chart_data.StrategyMACDChartData.as_view(), name="api_macd_chart_data"),
     path('api/rsi/chart/all', chart_data.StrategyRSIChartData.as_view(), name="api_rsi_chart_data"),
 
+    # API TABLE DATA
     # path('api/macd/chart/plot', chart_plot.StrategyMACDChartPlot.as_view(), name="api_macd_chart_plot"),
     path('api/macd/table/all', table_data.StrategyMACDTableData.as_view(), name="api_macd_table_data"),
     path('api/rsi/table/all', table_data.StrategyRSITableData.as_view(), name="api_rsi_table_data"),

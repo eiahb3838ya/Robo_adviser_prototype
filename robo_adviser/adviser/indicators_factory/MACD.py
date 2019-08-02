@@ -1,5 +1,6 @@
 from rpy2 import robjects
 from rpy2.robjects import r, pandas2ri
+import time
 
 try:
     from .data_generator import get_history_data
@@ -25,10 +26,11 @@ def main(selected_target):
 
     print("getting the history data")
     history_data_df=get_history_data(target='all')
+    # print(history_data_df)
     history_data_df['Date']=history_data_df.index
     history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
+    readDataFrame = pandas2ri.py2ri_pandasdataframe(history_data_df)
 
-    readDataFrame = pandas2ri.py2ri(history_data_df)
 
     ############################## R code #############################################
     # DataTable < - getDT_FromSQL(readDataFrame)
@@ -56,12 +58,14 @@ def main(selected_target):
     ##############################################################################################################
 
     ## get the functioin object in R
+    print("get the functioin object in R")
     getDT_FromSQL = r['getDT_FromSQL']
     getCol_DT = r['getCol_DT']
     getCode_DT = r['getCode_DT']
     getPeriod_DT = r['getPeriod_DT']
     getWin_DT = r['getWin_DT']
     getSelect_DT = r['getSelect_DT']
+
     getRet_DT = r['getRet_DT']
     getCumRet_DT = r['getCumRet_DT']
     get_alldf = r['get_alldf']

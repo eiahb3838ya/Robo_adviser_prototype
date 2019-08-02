@@ -60,10 +60,11 @@ def start(request):
 def form1(request):
 
     _, stock_list = get_stock_list()
-
+    strategy_list = ["macd" , "rsi"]
     stock_list = [strr+".TW" for strr in stock_list]
     context = {
         "stock_list":stock_list,
+        "strategy_list":strategy_list,
     }
     return(render(request, "singleStrategyForm.html",context))
 
