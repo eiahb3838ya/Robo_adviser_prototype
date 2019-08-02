@@ -148,6 +148,7 @@
       <find>&quot; &quot;</find>
       <find>pickle</find>
       <find>alert</find>
+      <find>not yet</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
