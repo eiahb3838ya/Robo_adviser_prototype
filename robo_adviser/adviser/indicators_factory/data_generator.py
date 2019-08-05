@@ -29,7 +29,7 @@ def get_history_data(target,startdate = "2015/01/01",enddate= dt.date.today().st
     lastBDate = pd.bdate_range(end=todayDate, periods=1, freq='B')[0]
 
     if len(readData_df) != 0:
-        lastHDate = readData_df.index[-1]
+        lastHDate = readData_df.index.max()
     else:
         print("there is no history_price.pkl")
         result_df = load_history_data_from_api('all', startDownloadDate, todayDate)
@@ -42,7 +42,7 @@ def get_history_data(target,startdate = "2015/01/01",enddate= dt.date.today().st
             return (select_date_result)
     if np.datetime64(lastHDate) < np.datetime64(lastBDate) - np.timedelta64(1, 'D'):
         print("history_price.pkl is not in latest update")
-        print("lastHDate", lastHDate, "lastBDate", lastBDate)
+        print("lastHDate", lastHDate, "lastBDate", np.datetime64(lastBDate) - np.timedelta64(1, 'D'))
         result_df = load_history_data_from_api('all', startDownloadDate, todayDate)
         result_df.to_pickle("./history_price.pkl")
         if target == 'all':
@@ -53,7 +53,6 @@ def get_history_data(target,startdate = "2015/01/01",enddate= dt.date.today().st
             return (select_date_result)
     else:
         print("history_price.pkl is in latest update")
-        print("lastHDate",lastHDate,"lastBDate",lastBDate)
         if target == 'all':
             return (readData_df.loc[startdate:enddate])
         else:
@@ -135,5 +134,5 @@ def winfactor(buyprice, sellprice, loss, win):
 
 if __name__ == "__main__":
     result_df = get_history_data("all")
-    print(result_df)
+    print(result_df.index[-1])
 

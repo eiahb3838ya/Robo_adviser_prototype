@@ -1,4 +1,5 @@
 from rpy2 import robjects
+import pandas as pd
 from rpy2.robjects import r, pandas2ri
 import time
 
@@ -29,56 +30,41 @@ def main(selected_target):
     # print(history_data_df)
     history_data_df['Date']=history_data_df.index
     history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
-    readDataFrame = pandas2ri.py2ri_pandasdataframe(history_data_df)
 
+    startTransformTime = time.time()
 
-    ############################## R code #############################################
-    # DataTable < - getDT_FromSQL(readDataFrame)
-    #
-    # ##### getCol_DT =====
-    # SelectCol_DT < - getCol_DT(DataTable, input$SelectCol)
-    #
-    # ##### getCode_DT =====
-    # SelectCode_DT < - getCode_DT(SelectCol_DT, input$listID)
-    #
-    # ##### getPeriod_DT =====
-    # Period_DT < - getPeriod_DT(SelectCode_DT)
-    #
-    # ##### getWin_DT =====
-    # # input$StartDate <-  Period_DT[[1]] # 2007-01-02
-    # # input$EndDate <-  Period_DT[[2]] # 2019-06-28
-    # Win_DT < - getWin_DT(SelectCode_DT, Period_DT[[1]], Period_DT[[2]])
-    #
-    # ##### getSelect_DT =====
-    # Select_DT < - getSelect_DT(Win_DT, input$listID, Period_DT[[1]], Period_DT[[2]])
-    #
-    # ##### ........... =====
-    ##### Ret_DT =====
-    # Ret_DT < - getRet_DT(Select_DT)
-    ##############################################################################################################
+    selected_data_df = history_data_df.loc[history_data_df['STOCK_CODE'] == StockCode, 'Close']
+    Select_df = pd.DataFrame({"index": selected_data_df.index.strftime("%Y-%m-%d"), "2330": selected_data_df})
+    Select_df = Select_df.reset_index(drop=True)
+    Select_DT = pandas2ri.py2ri_pandasdataframe(Select_df)
+
+    print("to readDataFrame done :" + str(time.time() - startTransformTime))
+    # readDataFrame = pandas2ri.py2ri_pandasdataframe(history_data_df)
+
 
     ## get the functioin object in R
     print("get the functioin object in R")
-    getDT_FromSQL = r['getDT_FromSQL']
-    getCol_DT = r['getCol_DT']
-    getCode_DT = r['getCode_DT']
-    getPeriod_DT = r['getPeriod_DT']
-    getWin_DT = r['getWin_DT']
-    getSelect_DT = r['getSelect_DT']
+    # getDT_FromSQL = r['getDT_FromSQL']
+    # getCol_DT = r['getCol_DT']
+    # getCode_DT = r['getCode_DT']
+    # getPeriod_DT = r['getPeriod_DT']
+    # getWin_DT = r['getWin_DT']
+    # getSelect_DT = r['getSelect_DT']
 
     getRet_DT = r['getRet_DT']
     getCumRet_DT = r['getCumRet_DT']
     get_alldf = r['get_alldf']
 
     ## run every function
-    DataTable  = getDT_FromSQL(readDataFrame)
-    SelectCol_DT  =  getCol_DT(DataTable, "Close")
-    SelectCode_DT  =  getCode_DT(SelectCol_DT, StockCode)
-    Period_DT  =  getPeriod_DT(SelectCode_DT)
-    StartDate = Period_DT[0]
-    EndDate = Period_DT[1]
-    Win_DT = getWin_DT(SelectCode_DT, StartDate=StartDate, EndDate=EndDate)
-    Select_DT  =  getSelect_DT(Win_DT, StockCode, StartDate=StartDate, EndDate=EndDate)
+    # DataTable  = getDT_FromSQL(readDataFrame)
+    # SelectCol_DT  =  getCol_DT(DataTable, "Close")
+    # SelectCode_DT  =  getCode_DT(SelectCol_DT, StockCode)
+    # Period_DT  =  getPeriod_DT(SelectCode_DT)
+    # StartDate = Period_DT[0]
+    # EndDate = Period_DT[1]
+    # Win_DT = getWin_DT(SelectCode_DT, StartDate=StartDate, EndDate=EndDate)
+    # Select_DT  =  getSelect_DT(Win_DT, StockCode, StartDate=StartDate, EndDate=EndDate)
+
     targetRet_DT = getRet_DT(Select_DT)
     alldf = get_alldf(Select_DT, targetRet_DT)
 

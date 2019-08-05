@@ -8,14 +8,49 @@
         <h2>you have selected target {{selected_target}} and the strategy {{selected_strategy}}</h2>
     </div>
     <div class="row">
-        <div class="col-12"><div id="fig_price"></div></div>
-        <div class="col"><div id="fig_targetRet"></div></div>
-        <div class="col"><div id="fig_targetCumRet"></div></div>
-        <div class="w-100"></div>
-        <div class="col"><div id="fig_strategyRet"></div></div>
-        <div class="col"><div id="fig_strategyCumRet"></div></div>
-        <div class="w-100"></div>
-        <div class="col"><div id="fig_strategyDrawdowns"></div></div>
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="asset-tab" data-toggle="tab" href="#asset" role="tab" aria-controls="asset"
+                  aria-selected="true">Trading Signal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="assetReturn-tab" data-toggle="tab" href="#assetReturn" role="tab" aria-controls="assetReturn"
+                  aria-selected="false">Asset Return</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="strategyReturn-tab" data-toggle="tab" href="#strategyReturn" role="tab" aria-controls="strategyReturn"
+                  aria-selected="false">Strategy Return</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="strategyDrawDown-tab" data-toggle="tab" href="#strategyDrawDown" role="tab" aria-controls="strategyDrawDown"
+                  aria-selected="false">Strategy Draw Down</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active col-12" id="asset" role="tabpanel" aria-labelledby="asset-tab">
+                    <div class="col-12">
+                        <div id="fig_price"></div>
+                        <div id="loader_circle" class="spinner-border m-5" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade col-12" id="assetReturn" role="tabpanel" aria-labelledby="assetReturn-tab">
+                    <div class="col-12"><div id="fig_targetRet"></div></div>
+
+                    <div class="col-12"><div id="fig_targetCumRet"></div></div>
+                </div>
+                <div class="tab-pane fade col-12" id="strategyReturn" role="tabpanel" aria-labelledby="strategyReturn-tab">
+                    <div class="col-12"><div id="fig_strategyRet"></div></div>
+                    <div class="w-100"></div>
+                    <div class="col-12"><div id="fig_strategyCumRet"></div></div>
+                </div>
+                <div class="tab-pane fade col-12" id="strategyDrawDown" role="tabpanel" aria-labelledby="strategyDrawDown-tab">
+                    <div class="col-12"><div id="fig_strategyDrawdowns"></div></div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -58,6 +93,7 @@
                 prepareChart(Date,strategyRet,'fig_strategyRet','strategyRet');
                 prepareChart(Date,strategyDrawdowns,'fig_strategyDrawdowns','strategyDrawdowns');
                 prepareChart(Date,strategyCumRet,'fig_strategyCumRet','strategyCumRet');
+
             },
             error:function(e){
                 alert(e.msg);
@@ -83,9 +119,9 @@
             };
             var data = [ PriceLine , BuyScatter , SellScatter];
             var layout = {
-              title:"Price"
+              title:"Trading Signal"
             };
-            Plotly.newPlot("fig_price", data, layout);
+            Plotly.newPlot("fig_price", data, layout,{responsive: true});
         };
 
         function prepareChart(Date,Y,div_id,fig_name){
@@ -96,9 +132,10 @@
             };
             var data = [ trace1 ];
             var layout = {
-              title:fig_name
+              title:fig_name,
+
             };
-            Plotly.newPlot(div_id, data, layout);
+            Plotly.newPlot(div_id, data, layout,{responsive: true});
         };
     });
 </script>
