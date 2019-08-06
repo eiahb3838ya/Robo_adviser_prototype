@@ -8,8 +8,11 @@ except:
     pass
 
 
-def main(selected_target):
-    STRATEGY_NAME="RSI"
+def main(selected_target, strategyName):
+    STRATEGY_NAME = strategyName
+    WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+
+    # activate rpy2 function
     pandas2ri.activate()
     # close the warning
     r.options(warn=-1)
@@ -22,8 +25,8 @@ def main(selected_target):
     print("we are in strategy {} and the StockCode is {}".format(STRATEGY_NAME, StockCode))
 
     # call r file
-    r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/strategy_{}.R', local = TRUE)".format(STRATEGY_NAME.lower()))
+    r("setwd('{}')".format(WD))
+    r("source('{}/strategy_{}.R', local = TRUE)".format(WD, STRATEGY_NAME.lower()))
 
     # "getting the history data"
     print("getting the history data")
@@ -81,7 +84,7 @@ def main(selected_target):
 #
 if __name__ == "__main__":
     from data_generator import get_history_data
-    print(main("2330.TW"))
+    print(main("2330.TW","MA"))
 
 # quick check by plotting
 

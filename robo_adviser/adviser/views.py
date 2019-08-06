@@ -1,12 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
-
-from .indicators_factory import data_generator,SMAWMA,BBandMA,strategy_from_r,MACD, RSI
-from rest_framework.response import Response
-from rest_framework.views import APIView
-import json
-import pandas as pd
 # Create your views here.
 
 def start(request):
@@ -57,13 +51,9 @@ def bbandma_table_result(request):
     }
     return(render(request,"single_target_result_using_ajax.html", context))
 
-# def r_strategy_result(request):
-#     try:
-#         selected_target = request.GET['stockpicker']
-#     except:
-#         print("error")
-#     return (render(request, 'r_strategy_result.html', locals()))
 
+
+# MACD
 def macd_table_result(request):
     try:
         selected_target = request.GET['stockpicker']
@@ -71,20 +61,6 @@ def macd_table_result(request):
     except:
         print("error")
     return (render(request, 'macd_table_result.html', locals()))
-
-def rsi_table_result(request):
-    try:
-        selected_target = request.GET['stockpicker']
-        selected_strategy = 'rsi'
-    except:
-        print("error")
-    return (render(request, 'rsi_table_result.html', locals()))
-
-
-def debuger_result1(request):
-    values = request.GET.getlist(u'target_strategy')
-    return (render(request, 'result1.html', locals()))
-
 
 def macd_plot_result(request):
     try:
@@ -94,6 +70,15 @@ def macd_plot_result(request):
         print("error")
     return (render(request, 'macd_plotjs_result.html', locals()))
 
+# RSI
+def rsi_table_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'rsi'
+    except:
+        print("error")
+    return (render(request, 'rsi_table_result.html', locals()))
+
 def rsi_plot_result(request):
     try:
         selected_target = request.GET['stockpicker']
@@ -101,3 +86,15 @@ def rsi_plot_result(request):
     except:
         print("error")
     return (render(request, 'rsi_plotjs_result.html', locals()))
+
+
+def debuger_result1(request):
+    values = request.GET.getlist(u'target_strategy')
+    return (render(request, 'test/result1.html', locals()))
+
+# def r_strategy_result(request):
+#     try:
+#         selected_target = request.GET['stockpicker']
+#     except:
+#         print("error")
+#     return (render(request, 'r_strategy_result.html', locals()))

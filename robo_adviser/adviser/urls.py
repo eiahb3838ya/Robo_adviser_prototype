@@ -1,6 +1,6 @@
 from django.urls import path,include
 from . import views
-from .apis import table_data,chart_data,chart_plot
+from .apis import table_data,chart_data
 from django.contrib.auth import views as auth_views
 
 app_name = 'adviser'
@@ -29,11 +29,15 @@ urlpatterns = [
     # path('api/chart/from_r/return', chart_data.StrategyFromRReturnData.as_view(), name="api_chart_return_data"),
     path('api/macd/chart/all', chart_data.StrategyMACDChartData.as_view(), name="api_macd_chart_data"),
     path('api/rsi/chart/all', chart_data.StrategyRSIChartData.as_view(), name="api_rsi_chart_data"),
-
+    path('api/bb/chart/all', chart_data.StrategyBBChartData.as_view(), name="api_bb_chart_data"),
+    path('api/ma/chart/all', chart_data.StrategyMAChartData.as_view(), name="api_ma_chart_data"),
     # API TABLE DATA
     # path('api/macd/chart/plot', chart_plot.StrategyMACDChartPlot.as_view(), name="api_macd_chart_plot"),
     path('api/macd/table/all', table_data.StrategyMACDTableData.as_view(), name="api_macd_table_data"),
     path('api/rsi/table/all', table_data.StrategyRSITableData.as_view(), name="api_rsi_table_data"),
+    path('api/bb/table/all', table_data.StrategyBBTableData.as_view(), name="api_bb_table_data"),
+    path('api/ma/table/all', table_data.StrategyMATableData.as_view(), name="api_ma_table_data"),
+
     path('api/smawma/table/all', table_data.StrategySMAWMATableData.as_view(), name="api_smawma_table_data"),
     path('api/bbandma/table/all', table_data.StrategyBBandMATableData.as_view(), name="api_bbandma_table_data"),
 
