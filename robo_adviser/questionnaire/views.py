@@ -57,10 +57,10 @@ def get_stock_list():
 def start(request):
     return(render(request,'enter_questionnaire.html'))
 
-def form1(request):
+def singleStrategyForm(request):
 
     _, stock_list = get_stock_list()
-    strategy_list = ["macd" , "rsi"]
+    strategy_list = ["macd" , "rsi", 'bb', 'ma']
     stock_list = [strr+".TW" for strr in stock_list]
     context = {
         "stock_list":stock_list,

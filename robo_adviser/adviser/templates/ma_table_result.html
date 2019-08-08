@@ -7,7 +7,9 @@
     <div class="row">
         <h2>you have selected target {{selected_target}} and the strategy {{selected_strategy}}</h2>
     </div>
+
     <div class="row">
+       <div class="col-md-12"><div id="plot">{{plot|safe}}</div></div>
         <div id="result_table_html" class="col-10">
             <table id="datatable"></table>
         </div>
@@ -26,7 +28,27 @@
 <script>
     $(document).ready(function(){
 
-        var endpoint = "{% url 'adviser:api_rsi_table_data' %}"
+        $.ajax({
+            url: "not yet",
+            type: 'get',
+            data:{
+                selected_target:"{{selected_target}}"
+            },
+            success: function(data) {
+                $('#plot').empty().append(data);
+            },
+            failure: function(data) {
+                alert('Got an error dude!');
+
+            },
+            complete: function(data) {
+                var message = 'Time: '+(new Date().getTime() - this.start_time);
+                console.log(message);
+            }
+          });
+
+
+        var endpoint = "{% url 'adviser:api_ma_table_data' %}"
         var selected_target = columns =  result_table_json = []
         $.ajax({
             method:"GET",

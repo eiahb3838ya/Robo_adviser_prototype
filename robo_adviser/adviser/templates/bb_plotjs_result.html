@@ -64,7 +64,7 @@
 {% block contentJS %}
 <script>
     $(document).ready(function(){
-        var endpoint = "{% url 'adviser:api_macd_chart_data' %}"
+        var endpoint = "{% url 'adviser:api_bb_chart_data' %}"
         var Date =  targetRet = targetCumRet = strategyRet = strategyDrawdowns = strategyCumRet = [];
         var price = buyDate = buyPrice = sellDate = sellPrice = [];
         $.ajax({

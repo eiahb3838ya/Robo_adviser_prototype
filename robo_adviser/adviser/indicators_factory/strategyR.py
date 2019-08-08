@@ -84,7 +84,7 @@ def main(selected_target, strategyName):
 #
 if __name__ == "__main__":
     from data_generator import get_history_data
-    print(main("2330.TW","MA"))
+    print(main("2330.TW","MACD"))
 
 # quick check by plotting
 

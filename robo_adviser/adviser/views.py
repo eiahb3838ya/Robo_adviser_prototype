@@ -87,6 +87,38 @@ def rsi_plot_result(request):
         print("error")
     return (render(request, 'rsi_plotjs_result.html', locals()))
 
+def ma_table_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'ma'
+    except:
+        print("error")
+    return (render(request, 'ma_table_result.html', locals()))
+
+def ma_plot_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'ma'
+    except:
+        print("error")
+    return (render(request, 'ma_plotjs_result.html', locals()))
+
+def bb_table_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'bb'
+    except:
+        print("error")
+    return (render(request, 'bb_table_result.html', locals()))
+
+def bb_plot_result(request):
+    try:
+        selected_target = request.GET['stockpicker']
+        selected_strategy = 'bb'
+    except:
+        print("error")
+    return (render(request, 'bb_plotjs_result.html', locals()))
+
 
 def debuger_result1(request):
     values = request.GET.getlist(u'target_strategy')
