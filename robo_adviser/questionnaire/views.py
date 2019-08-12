@@ -69,7 +69,17 @@ def singleStrategyForm(request):
     return(render(request, "singleStrategyForm.html",context))
 
 def form2(request):
-    return(render(request, "form2.html"))
+    # strategyList = ["macd" , "rsi", 'bb', 'ma']
+    _, stock_list = get_stock_list()
+    strategyList = ["macd", "rsi", 'bb', 'ma']
+
+    stockList = [strr + ".TW" for strr in stock_list][:10]
+    context = {
+        "stockList": stockList,
+        "strategyList": strategyList,
+    }
+
+    return(render(request, "form2.html", context))
 
 #
 class TargetChartData(APIView):

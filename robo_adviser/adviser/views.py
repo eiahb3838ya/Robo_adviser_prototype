@@ -51,8 +51,6 @@ def bbandma_table_result(request):
     }
     return(render(request,"single_target_result_using_ajax.html", context))
 
-
-
 # MACD
 def macd_table_result(request):
     try:
@@ -95,6 +93,7 @@ def ma_table_result(request):
         print("error")
     return (render(request, 'ma_table_result.html', locals()))
 
+# MA
 def ma_plot_result(request):
     try:
         selected_target = request.GET['stockpicker']
@@ -111,6 +110,7 @@ def bb_table_result(request):
         print("error")
     return (render(request, 'bb_table_result.html', locals()))
 
+# BB
 def bb_plot_result(request):
     try:
         selected_target = request.GET['stockpicker']
@@ -121,7 +121,7 @@ def bb_plot_result(request):
 
 
 def debuger_result1(request):
-    values = request.GET.getlist(u'target_strategy')
+    values = request.GET.getlist('target_strategy')
     return (render(request, 'test/result1.html', locals()))
 
 # def r_strategy_result(request):

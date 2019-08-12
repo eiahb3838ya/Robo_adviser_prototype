@@ -35,12 +35,10 @@ def main(selected_target, strategyName):
     history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
 
     startTransformTime = time.time()
-
     selected_data_df = history_data_df.loc[history_data_df['STOCK_CODE'] == StockCode, 'Close']
     Select_df = pd.DataFrame({"index": selected_data_df.index.strftime("%Y-%m-%d"), "2330": selected_data_df})
     Select_df = Select_df.reset_index(drop=True)
     Select_DT = pandas2ri.py2ri_pandasdataframe(Select_df)
-
     print("to readDataFrame done :" + str(time.time() - startTransformTime))
 
     # get the result we wanted
@@ -78,13 +76,17 @@ def main(selected_target, strategyName):
         "df": alldf,
         "targetRet": targetRet,
         "targetCumRet": targetCumRet,
-        "strategyRet": alldf['Equity'],
+        "strategyRet":pd.DataFrame(alldf[['index','Equity']].rename(columns = {'Equity' : "{}_{}_Ret".format(strategyName, StockCode)}) )
+
     }
     return(data_dict)
 #
 if __name__ == "__main__":
     from data_generator import get_history_data
-    print(main("2330.TW","MACD"))
+
+    print(main("2330.TW", "MACD")['strategyRet'])
+
+    # return (data_dict['strategyRet'])
 
 # quick check by plotting
 

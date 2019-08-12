@@ -14,7 +14,7 @@
 <div class="container ">
     <div class="row">
         <div class="col-6">
-            <h3>Responsive Table Input Matrix</h3>
+            <h3>pick multiple strategy and stock set</h3>
         </div>
 
     </div>
@@ -25,65 +25,31 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>strategy_a</th>
-                                <th>strategy_b</th>
-                                <th>strategy_c</th>
-                                <th>strategy_d</th>
-
+                                {% for aStrategy in strategyList %}
+                                <th>{{ aStrategy }}</th>
+                                {% endfor %}
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>0050.TW</td>
 
+                        {% for aStock in stockList %}
+                        <tr>
+                            <td>{{ aStock }}</td>
+                            {% for aStrategy in strategyList %}
                             <td>
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                    <label class="custom-control-label" for="defaultUnchecked"></label>
+                                    <input type="checkbox" class="custom-control-input" name="target_strategy" id="{{ aStock }}_{{ aStrategy }}" value="{{ aStock }}_{{ aStrategy }}">
+                                    <label class="custom-control-label" for="{{ aStock }}_{{ aStrategy }}"></label>
                                 </div>
-    <!--                            <input class="custom-control-input"  type="checkbox" name="target_strategy" value="0050.TW_a">-->
                             </td>
-
-                            <td><input type="checkbox" name="target_strategy" value="0050.TW_b"></td>
-                            <td><input type="checkbox" name="target_strategy" value="0050.TW_c"></td>
-                            <td><input type="checkbox" name="target_strategy" value="0050.TW_d"></td>
-
+                            {% endfor %}
                         </tr>
-                        <tr>
-                            <td>2330.TW</td>
-                            <td><input type="checkbox" name="target_strategy" value="2330.TW_a"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2330.TW_b"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2330.TW_c"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2330.TW_d"></td>
+                        {% endfor %}
 
-                        </tr>
-                        <tr>
-                            <td>2207.TW</td>
-                            <td><input type="checkbox" name="target_strategy" value="2207.TW_a"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2207.TW_b"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2207.TW_c"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2207.TW_d"></td>
-
-                        </tr>
-                        <tr>
-                            <td>2103.TW</td>
-                            <td><input type="checkbox" name="target_strategy" value="2103.TW_a"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2103.TW_b"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2103.TW_c"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2103.TW_d"></td>
-
-                        </tr>
-                        <tr>
-                            <td>2305.TW</td>
-                            <td><input type="checkbox" name="target_strategy" value="2305.TW_a"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2305.TW_b"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2305.TW_c"></td>
-                            <td><input type="checkbox" name="target_strategy" value="2305.TW_d"></td>
-                        </tr>
                         </tbody>
                     </table>
                     <input class="btn btn-primary" type="submit" value="enter">
-                    <input class="btn btn-secondary" type="reset" value="reset">
+                    <input class="btn btn-dark" type="reset" value="reset">
 
             </form>
 
@@ -95,11 +61,11 @@
 {% endblock %}
 {% block contentJS %}
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
+<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+<!--    &lt;!&ndash; Bootstrap tooltips &ndash;&gt;-->
+<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>-->
+<!--    &lt;!&ndash; Bootstrap core JavaScript &ndash;&gt;-->
+<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+<!--    &lt;!&ndash; MDB core JavaScript &ndash;&gt;-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
 {% endblock %}
