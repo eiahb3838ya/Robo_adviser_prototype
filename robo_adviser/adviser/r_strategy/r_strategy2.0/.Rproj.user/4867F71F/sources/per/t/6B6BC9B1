@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564316847802.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2620104621",
+    "id" : "6B6BC9B1",
+    "lastKnownWriteTime" : 1564316850,
+    "last_content_update" : 1564316850830,
+    "path" : "D:/20190723/Trading_Azar_1.1.3_20190723/Function/getDrawdowns.R",
+    "project_path" : "Function/getDrawdowns.R",
+    "properties" : {
+        "cursorPosition" : "8,29",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

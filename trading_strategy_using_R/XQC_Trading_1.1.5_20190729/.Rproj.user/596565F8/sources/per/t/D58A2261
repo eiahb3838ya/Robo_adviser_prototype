@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564540465314.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2417028883",
+    "id" : "D58A2261",
+    "lastKnownWriteTime" : 1564387186,
+    "last_content_update" : 1564387186,
+    "path" : "C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/trading_strategy_using_R/XQC_Trading_1.1.5_20190729/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

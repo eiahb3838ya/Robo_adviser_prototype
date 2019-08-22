@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565240664800.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1672DD72",
+    "lastKnownWriteTime" : 1565873007,
+    "last_content_update" : 1565873007632,
+    "path" : "C:/Users/Evan/MyFile/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/R shiny main/Trading_Azar_main.R",
+    "project_path" : "R shiny main/Trading_Azar_main.R",
+    "properties" : {
+        "cursorPosition" : "182,31",
+        "docOutlineSize" : "150.97846913488925",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "177"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

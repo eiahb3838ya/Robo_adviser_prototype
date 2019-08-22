@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564214464185.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "6|16|21|0|\n158|27|175|0|\n176|30|194|0|\n214|24|216|0|\n290|28|307|0|\n311|19|317|36|\n318|20|324|36|\n325|14|332|0|\n336|19|344|0|\n345|21|353|0|\n354|21|362|0|\n364|19|372|0|\n373|21|381|0|\n382|21|390|0|\n392|14|400|0|\n401|16|409|0|\n410|16|418|0|\n477|27|496|0|\n497|28|506|0|\n518|27|528|0|\n531|30|550|0|\n551|28|568|0|\n569|29|578|0|\n590|28|600|0|\n603|24|622|0|\n623|22|640|0|\n641|23|650|0|\n662|22|672|0|\n",
+    "hash" : "2566407940",
+    "id" : "E86601F8",
+    "lastKnownWriteTime" : 1564316234,
+    "last_content_update" : 1564316234055,
+    "path" : "D:/20190723/Trading_Azar_1.1.3_20190723/Trading_Azar_main.R",
+    "project_path" : "Trading_Azar_main.R",
+    "properties" : {
+        "cursorPosition" : "221,23",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "218"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

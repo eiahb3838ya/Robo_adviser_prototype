@@ -1,0 +1,17 @@
+suppressMessages(library(PerformanceAnalytics))
+suppressMessages(library(quantmod))
+suppressMessages(library(timeSeries))
+suppressMessages(library(fUnitRoots))
+suppressMessages(library(fPortfolio))
+suppressMessages(library(CVXR))
+suppressMessages(library(data.table))
+suppressMessages(library(tidyverse))
+suppressMessages(library(plotly))
+
+##### Source =====
+
+pathis <- "C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/"
+files <- list.files(path = "Function/",pattern = "\\.R")
+lapply(files, function(idx){
+  source(paste0("Function/", idx))
+})

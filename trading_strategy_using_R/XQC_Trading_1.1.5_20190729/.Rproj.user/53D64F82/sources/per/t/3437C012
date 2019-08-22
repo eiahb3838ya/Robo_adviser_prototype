@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563356718028.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1033603285",
+    "id" : "3437C012",
+    "lastKnownWriteTime" : 1564387239,
+    "last_content_update" : 1564387239617,
+    "path" : "D:/Azar/2019Main/XQC_Trading/XQC_Trading_1.1.5_20190729/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "cursorPosition" : "9,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

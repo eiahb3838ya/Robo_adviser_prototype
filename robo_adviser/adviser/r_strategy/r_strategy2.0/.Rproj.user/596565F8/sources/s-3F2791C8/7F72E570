@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565592786042.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2345483017",
+    "id" : "7F72E570",
+    "lastKnownWriteTime" : 1566462156,
+    "last_content_update" : 1566462156391,
+    "path" : "C:/Users/Evan/MyFile/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/portfolio_RiskParity.R",
+    "project_path" : "portfolio_RiskParity.R",
+    "properties" : {
+        "cursorPosition" : "24,36",
+        "scrollLine" : "3",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

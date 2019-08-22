@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565854412710.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2813884220",
+    "id" : "D9A4975C",
+    "lastKnownWriteTime" : 1566462149,
+    "last_content_update" : 1566462149744,
+    "path" : "C:/Users/Evan/MyFile/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/portfolio_Markowitz.R",
+    "project_path" : "portfolio_Markowitz.R",
+    "properties" : {
+        "cursorPosition" : "24,35",
+        "scrollLine" : "3"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

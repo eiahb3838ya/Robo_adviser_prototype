@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564316948391.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3380066681",
+    "id" : "9D7DEC60",
+    "lastKnownWriteTime" : 1564314949,
+    "last_content_update" : 1564314949,
+    "path" : "D:/20190723/XQC_Trading_1.1.3_20190723/server/get_RSI_Signal.R",
+    "project_path" : "server/get_RSI_Signal.R",
+    "properties" : {
+        "cursorPosition" : "13,0",
+        "scrollLine" : "3"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

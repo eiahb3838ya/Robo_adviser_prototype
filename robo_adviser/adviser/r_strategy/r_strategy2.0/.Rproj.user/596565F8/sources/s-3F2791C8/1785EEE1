@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1565594833173.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1785EEE1",
+    "lastKnownWriteTime" : 1565065860,
+    "last_content_update" : 1565065860,
+    "path" : "C:/Users/Evan/MyFile/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/strategy_ma.R",
+    "project_path" : "strategy_ma.R",
+    "properties" : {
+        "cursorPosition" : "14,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

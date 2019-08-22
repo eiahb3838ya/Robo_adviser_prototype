@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564316983887.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2739262475",
+    "id" : "A4B3F97D",
+    "lastKnownWriteTime" : 1564316992,
+    "last_content_update" : 1564316992262,
+    "path" : "D:/20190723/XQC_Trading_1.1.3_20190723/server/get_EfficientFrontier.R",
+    "project_path" : "server/get_EfficientFrontier.R",
+    "properties" : {
+        "cursorPosition" : "3,21",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564386215706.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3380066681",
+    "id" : "253227D0",
+    "lastKnownWriteTime" : 1564240864,
+    "last_content_update" : 1564240864,
+    "path" : "D:/Azar/2019Main/XQC_Trading/Trading_Azar_1.1.5_20190729/Function/get_RSI_Signal.R",
+    "project_path" : "Function/get_RSI_Signal.R",
+    "properties" : {
+        "cursorPosition" : "15,0",
+        "scrollLine" : "6"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
