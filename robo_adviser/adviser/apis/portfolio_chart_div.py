@@ -139,7 +139,9 @@ class PortfolioCVaRChartData(APIView):
         for target, strategy in pairs:
             if first:
                 firstStrategyResult = strategyR.main(target, strategy, return_history_data=True)
+
                 Ret = firstStrategyResult['targetRet']
+
                 history_data_df = firstStrategyResult['history_data_df']
                 tmpStrategyRet = firstStrategyResult['strategyRet']
                 first = False

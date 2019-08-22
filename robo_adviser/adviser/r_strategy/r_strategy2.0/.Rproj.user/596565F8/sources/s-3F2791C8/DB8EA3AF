@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1566465614854.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "737856054",
+    "id" : "DB8EA3AF",
+    "lastKnownWriteTime" : 1565586308,
+    "last_content_update" : 1565586308,
+    "path" : "C:/Users/Evan/MyFile/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/portfolio_MVaR_CVaR.R",
+    "project_path" : "portfolio_MVaR_CVaR.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -7,6 +7,7 @@ from django.conf import settings
 def main( equityList, Ret):
     # init parameter
     BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+
     WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
     # WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
 
@@ -61,6 +62,9 @@ def main( equityList, Ret):
     MVaR_CVaR_df = pandas2ri.ri2py_dataframe(MVaR_CVaR)#returnAll[10]
     CVaR_CVaR_df = pandas2ri.ri2py_dataframe(CVaR_CVaR)#returnAll[11]
 
+    Portfolio_EFrontier_list = list(Portfolio_EFrontier)
+    # Portfolio_EFrontier_list = [pandas2ri.ri2py_dataframe(df) for df in Portfolio_EFrontier_list]
+
     data_dict = {
         "RC_Markowitz_df": RC_Markowitz_df,
         "Wt_Markowitz_df": Wt_Markowitz_df,
@@ -77,7 +81,7 @@ def main( equityList, Ret):
         "MVaR_CVaR_df" :MVaR_CVaR_df,
         "CVaR_CVaR_df" :CVaR_CVaR_df,
 
-        "Portfolio_EFrontier": Portfolio_EFrontier,
+        "Portfolio_EFrontier": Portfolio_EFrontier_list,
 
 
     }
@@ -87,9 +91,11 @@ def main( equityList, Ret):
 
 
 if __name__ == "__main__":
-    import sys
+
+    import sys,os
     sys.path.extend(['C:\\Users\\Evan\\Desktop\\xiqi\\Robo_adviser_prototype\\robo_adviser'
                         , 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser'])
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'robo_adviser.settings')
     from adviser.indicators_factory import strategyR
     # macd_Ret = strategyR.main("2330", "MACD")['strategyRet']
     rsi_Ret = strategyR.main("2330", "RSI")['strategyRet']

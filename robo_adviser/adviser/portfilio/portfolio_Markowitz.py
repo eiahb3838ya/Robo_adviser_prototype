@@ -20,6 +20,7 @@ def main( equityList, Ret):
     # close the warning
     r.options(warn=-1)
     warnings.simplefilter(action='ignore', category=FutureWarning)
+
     # prepare DT for R code
     Equity_All_df = pd.DataFrame({'index':equityList[0]['index']})
     # Equity_All_df = pd.concat([Equity_All_df, Ret])
@@ -57,6 +58,8 @@ if __name__ == "__main__":
     # macd_Ret = strategyR.main("2330", "MACD")['strategyRet']
     rsi_Ret = strategyR.main("2330", "RSI")['strategyRet']
     ma_Ret = strategyR.main("2330", "MA")['strategyRet']
+
     Ret = strategyR.main("2330", "RSI")['targetRet']
+
     equityList = [rsi_Ret, ma_Ret]
     thisReturn = main(equityList, Ret)
