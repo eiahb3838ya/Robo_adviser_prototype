@@ -18,5 +18,5 @@ def goToRobot(request):
     #deal with the email
     # print(user_email)
 
-    return redirect(reverse('questionnaire:form1'))
+    return redirect(reverse('questionnaire:singleStrategyForm'))
 

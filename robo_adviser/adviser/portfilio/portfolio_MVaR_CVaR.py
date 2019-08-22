@@ -2,10 +2,14 @@ from rpy2 import robjects
 import time
 import pandas as pd
 from rpy2.robjects import r, pandas2ri
+from django.conf import settings
 
 def main( equityList, Ret):
     # init parameter
-    WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+    BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+    WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
+    # WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+
     # activate rpy2 function
     pandas2ri.activate()
     # call r file

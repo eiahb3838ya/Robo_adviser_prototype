@@ -3,13 +3,23 @@
 
 {% block resultContent %}
 <div class="container">
-    {{ values }}
-<!--    {{ target_price_df }}-->
-    {{ selected_strategy }}
+
+
+    {% for aPair in pairs%}
+        {{aPair}}
+    {% endfor %}
+
+<!--    {% for aS in strategys%}-->
+<!--        {{aS}}-->
+<!--    {% endfor %}-->
     <div class="row" id="line_fig">
 
     </div>
 </div>
+
+
+{% endblock %}
+{% block contentJS %}
 
 
 {% endblock %}

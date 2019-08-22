@@ -1,13 +1,17 @@
 import pandas as pd
 from rpy2.robjects import r, pandas2ri
 import warnings
-
+from django.conf import settings
 
 def main( equityList, Ret):
     PORTFOLIO_NAME = "Markowitz"
     print("we are in portfolio {}".format(PORTFOLIO_NAME))
+
     # init parameter
-    WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+    BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+    WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
+    # WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+
     # activate rpy2 function
     pandas2ri.activate()
     # call r file
@@ -16,9 +20,6 @@ def main( equityList, Ret):
     # close the warning
     r.options(warn=-1)
     warnings.simplefilter(action='ignore', category=FutureWarning)
-
-
-
     # prepare DT for R code
     Equity_All_df = pd.DataFrame({'index':equityList[0]['index']})
     # Equity_All_df = pd.concat([Equity_All_df, Ret])
@@ -29,17 +30,21 @@ def main( equityList, Ret):
     Equity_All_DT = r['as.data.table'](Equity_All_df)
 
     get_portfolio_result = r['get_portfolio_result']
-    returnAll = list(get_portfolio_result(Equity_All_DT))
+    # getCumRet_DT = r['getCumRet_DT']
 
+
+    returnAll = list(get_portfolio_result(Equity_All_DT))
     returnAll = [pandas2ri.ri2py_dataframe(df) for df in returnAll]
+
     RL_Corr = returnAll[0]
     RL_Wt = returnAll[1]
     RL_Ret = returnAll[2]
 
     data_dict = {
+        "Equity_All_df":Equity_All_df,
         "RL_Corr": RL_Corr,
         "RL_Wt": RL_Wt,
-        "RL_Ret": RL_Ret
+        "RL_Ret": RL_Ret,
     }
 
     return(data_dict)

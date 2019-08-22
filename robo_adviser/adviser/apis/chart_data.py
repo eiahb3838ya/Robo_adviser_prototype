@@ -1,4 +1,4 @@
-from ..indicators_factory import strategyR,data_generator
+from ..indicators_factory import strategyR, data_generator
 from ..indicators_factory.test import MACD,RSI
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -16,10 +16,14 @@ import numpy as np
 #         return( Response( data_dict ) )
 class StrategyMACDChartData(APIView):
     def get(self, request, format = None):
-        selected_target = request.GET["selected_target"]
-        print("we are now in StrategyMACDChartData:", selected_target)
+        # selected_target = request.GET["selected_target"]
+        # print("we are now in StrategyMACDChartData:", selected_target)
+        # data_dict = MACD.main(selected_target)
 
-        data_dict = MACD.main(selected_target)
+        strategyName = "MACD"
+        selected_target = request.GET["selected_target"]
+        print("we are now in Strategy{}ChartData:".format(strategyName), selected_target)
+        data_dict = strategyR.main(selected_target, strategyName)
 
         # get df_to_display and index for the df later
         df_to_display = data_dict['df']
@@ -84,9 +88,14 @@ class StrategyMACDChartData(APIView):
 
 class StrategyRSIChartData(APIView):
     def get(self, request, format=None):
+        # selected_target = request.GET["selected_target"]
+        # print("we are now in StrategyRSIChartData:", selected_target)
+        # data_dict = RSI.main(selected_target)
+
+        strategyName = "RSI"
         selected_target = request.GET["selected_target"]
-        print("we are now in StrategyRSIChartData:", selected_target)
-        data_dict = RSI.main(selected_target)
+        print("we are now in Strategy{}ChartData:".format(strategyName), selected_target)
+        data_dict = strategyR.main(selected_target, strategyName)
 
         # get df_to_display and index for the df later
         df_to_display = data_dict['df']
@@ -212,6 +221,7 @@ class StrategyMAChartData(APIView):
 class StrategyBBChartData(APIView):
     def get(self, request, format=None):
         strategyName = "BB"
+
         selected_target = request.GET["selected_target"]
         print("we are now in Strategy{}ChartData:".format(strategyName), selected_target)
         data_dict = strategyR.main(selected_target, strategyName)

@@ -1,0 +1,80 @@
+{% extends "adviser_base.html" %}
+
+
+{% block resultContent %}
+<div class="container">
+    <div class="row card">
+        <div class="card-header">
+            <h2>You have selected target {{selected_target}} and the strategy {{selected_strategy_str}}</h2>
+<!--            <h2>{{target_strategy | safe}}</h2>-->
+        </div>
+        <div class="card-body">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="asset-tab" data-toggle="tab" href="#asset" role="tab" aria-controls="asset"
+                      aria-selected="true">{{portfolio}}</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active col-12" id="asset" role="tabpanel" aria-labelledby="asset-tab">
+                        <div class="col-12"><div id="fig_portfolio_cum_ret_div"></div></div>
+                        <div class="w-100"></div>
+                        <div class="col-12"><div id="fig_portfolio_ret_div"></div></div>
+                        <div class="w-100"></div>
+                        <div class="col-12"><div id="fig_portfolio_dd_div"></div></div>
+                        <div class="w-100"></div>
+                        <div class="col-12"><div id="fig_ret_line_div"></div></div>
+                        <div class="w-100"></div>
+                        <div class="col-12"><div id="fig_corr_lint_div"></div></div>
+                        <div class="w-100"></div>
+                        <div class="col-12"><div id="fig_wt_bar_div"></div></div>
+                        <div class="w-100"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+
+{% block contentJS %}
+<script>
+    $(document).ready(function(){
+        var endpoint = "{% url 'adviser:api_cvar_chart_data' %}";
+        var output = [];
+
+        $.ajax({
+            method:"GET",
+            url:endpoint,
+            data:{
+                //https://stackoverflow.com/questions/18045867/post-jquery-array-to-django
+                'target_strategy[]':{{target_strategy | safe}}
+            },
+            success:function(data){
+
+                $('#fig_portfolio_cum_ret_div').empty().append(data.portfolio_cum_ret_div);
+                $('#fig_portfolio_ret_div').empty().append(data.portfolio_ret_div);
+                $('#fig_wt_bar_div').empty().append(data.wt_bar_div);
+                $('#fig_portfolio_dd_div').empty().append(data.portfolio_dd_div);
+                $('#fig_ret_line_div').empty().append(data.ret_line_div);
+                $('#fig_corr_lint_div').empty().append(data.corr_lint_div);
+
+
+
+            },
+            error:function(e){
+                alert(e.msg);
+            }
+        });
+    });
+</script>
+{% endblock %}

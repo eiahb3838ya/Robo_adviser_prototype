@@ -7,6 +7,7 @@ import datetime as dt
 import yfinance as yf
 from rpy2 import robjects
 from rpy2.robjects import r, pandas2ri
+from django.conf import settings
 
 
 yf.pdr_override()
@@ -96,8 +97,12 @@ def getCumRet_Drawdowns(strategyRet_df):
     strategyRet_DT = r('as.data.table')(strategyRet_ri)
 
     # call r file
-    r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
-    r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/source_server.R', local = TRUE)")
+    BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+    WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
+    r("setwd('{}')".format(WD))
+    # r("setwd('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0')")
+    r("source('{}/{}.R', local = TRUE)".format(WD, "source_server"))
+    # r("source('C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0/source_server.R', local = TRUE)")
 
     # get the r functions
     getCumRet_DT = r['getCumRet_DT']

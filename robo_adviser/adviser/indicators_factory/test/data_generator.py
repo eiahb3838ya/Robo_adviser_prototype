@@ -40,7 +40,7 @@ def get_history_data(target,startdate = "2015/01/01",enddate= dt.date.today().st
             select_code_result = result_df.loc[result_df['STOCK_CODE'] == target[0:4]]
             select_date_result = select_code_result.loc[startdate:enddate]
             return (select_date_result)
-    if np.datetime64(lastHDate) < np.datetime64(lastBDate) - np.timedelta64(1, 'D'):
+    if False:#np.datetime64(lastHDate) < np.datetime64(lastBDate) - np.timedelta64(1, 'D'):
         print("history_price.pkl is not in latest update")
         print("lastHDate", lastHDate, "lastBDate", np.datetime64(lastBDate) - np.timedelta64(1, 'D'))
         result_df = load_history_data_from_api('all', startDownloadDate, todayDate)

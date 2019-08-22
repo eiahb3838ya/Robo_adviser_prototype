@@ -1,6 +1,6 @@
 from django.urls import path,include
 from . import views
-from .apis import table_data,chart_data
+from .apis import table_data,chart_data, portfolio_chart_div
 from django.contrib.auth import views as auth_views
 
 app_name = 'adviser'
@@ -11,6 +11,7 @@ urlpatterns = [
     path('plot_result/', views.go_to_plot_result, name='go_to_plot_result'),
     path('table_result/',views.go_to_table_result, name='go_to_table_result'),
 
+    path('multistrategy_result/', views.go_to_multistrategy_result, name='go_to_multistrategy_result'),
     # DEBUG FOR FORM2
     path('debuger_result1/', views.debuger_result1, name='debuger_result1'),
 
@@ -30,6 +31,12 @@ urlpatterns = [
     path('ma_plot_result/', views.ma_plot_result, name='ma_plot_result'),
     path('bb_plot_result/', views.bb_plot_result, name='bb_plot_result'),
 
+    # PORTFOLIO CHART
+    path('portfolio_markowitz_result/', views.portfolio_markowitz_result, name='portfolio_markowitz_result'),
+    path('portfolio_riskparity_result/', views.portfolio_riskparity_result, name='portfolio_riskparity_result'),
+    path('portfolio_cvar_result/', views.portfolio_cvar_result, name='portfolio_cvar_result'),
+
+
     # API CHART DATA
     # path('api/chart/from_r/return', chart_data.StrategyFromRReturnData.as_view(), name="api_chart_return_data"),
     path('api/macd/chart/all', chart_data.StrategyMACDChartData.as_view(), name="api_macd_chart_data"),
@@ -46,5 +53,12 @@ urlpatterns = [
 
     path('api/smawma/table/all', table_data.StrategySMAWMATableData.as_view(), name="api_smawma_table_data"),
     path('api/bbandma/table/all', table_data.StrategyBBandMATableData.as_view(), name="api_bbandma_table_data"),
+
+    # API PORTFOLIO CHART
+    path('api/markowitz/chart/all', portfolio_chart_div.PortfolioMarkowitzChartData.as_view(), name="api_markowitz_chart_data"),
+    path('api/riskparity/chart/all', portfolio_chart_div.PortfolioRiskParityChartData.as_view(), name="api_riskparity_chart_data"),
+    path('api/cvar/chart/all', portfolio_chart_div.PortfolioCVaRChartData.as_view(), name="api_cvar_chart_data"),
+
+
 
 ]

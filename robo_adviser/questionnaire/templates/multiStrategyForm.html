@@ -1,0 +1,216 @@
+{% extends "questionnaire_base.html" %}
+{% load static %}
+
+
+{% block contentInHead %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+{% endblock %}
+
+{% block questionnaireContent %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 panel ">
+
+            <form name='myform'  method="GET">
+                <div class="row">
+                    <div class="col-12 card border-light">
+                        <div class="card-body">
+                            <div class="col-8">
+                                <div class="form-group form-inline">
+                                    <div class="col-6">
+                                        <div class="md-form">
+                                            <input class = "form-control" type="text" id = "from_date" name="from_date" value="01/01/2015" />
+                                            <label class="" for="from_date"> FROM DATE </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="md-form">
+                                            <input class="form-control" type="text" id = "to_date" name="to_date" value="" />
+                                            <label class="" for="to_date"> TO DATE </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group md-form" hidden>
+                                    <label class=""> TARGET TYPE </label><br><br>
+                                    <select class="selectpicker " name="typepicker" id="typepicker" data-width="100%">
+                                        <option >Stock</option>
+                                        <option >Futures</option>
+                                        <option >Option</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group md-form selectpicker-div">
+                                    <label class=""> ASSET </label><br><br>
+                                    <select class="selectpicker " name="stockpicker" id="stockpicker" data-live-search="true" data-width="100%" data-size="8">
+                                        {% for a_stock in stock_list %}
+                                           <option>{{a_stock}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group md-form selectpicker-div">
+                                    <label class=""> PORTFOLIO </label><br><br>
+                                    <select class="selectpicker " name="portfolio" id="portfolio"  data-width="100%" data-size="8">
+                                        {% for a_portfolio in portfolio_list %}
+                                           <option>{{a_portfolio}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group md-form selectpicker-div" >
+                                    <label class=""> STRATEGY </label><br><br>
+                                    <select class="selectpicker " name="strategypicker" id="strategypicker" data-width="100%" multiple data-actions-box="true" >
+                                        {% for a_strategy in strategy_list %}
+                                           <option value ="{{a_strategy}}">{{a_strategy.upper}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+
+                                <button class="btn btn-light" type="reset">reset</button>
+                                <button class= "btn btn-primary" type="submit" name="action" value="go_to_multistrategy_result"
+                                        formaction="{% url 'adviser:go_to_multistrategy_result' %}">go go power ranger</button>
+<!--                                <button class= "btn btn-primary" type="submit" name="action" value="macd_plot_result" formaction="{% url 'adviser:macd_plot_result' %}">macd_plot_result</button>-->
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent ">
+                            <div class="row" id="line_fig"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block contentJS %}
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script>
+<!--daterange picker cdn-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+    <script>
+    $(function() {
+      $('input[name="from_date"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 2015,
+        maxYear: parseInt(moment().format('YYYY'),10)
+      });
+    });
+    $(function() {
+      $('input[name="to_date"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 2015,
+        maxYear: parseInt(moment().format('YYYY'),10)
+      });
+    });
+    </script>
+
+    <script>
+
+
+        //solve the thing that Disabled form elements are not sent by the form.
+        //$(':disabled').each(function(){
+        //    $(this).after('<input type="hidden" name="' + $(this).attr('name') + '" value="' + $(this).val() + '" />');
+        //});
+
+        //開啟的時候就先畫圖
+        $(document).ready(function(){
+            var endpoint = 'api/chart/data'
+            var articleData =  articleLabels = []
+            $.ajax({
+                method:"GET",
+                url:endpoint,
+                data:{
+                    user_picked: $('#stockpicker').val()
+                },
+                success:function(data){
+                    articleLabels = data.article_labels;
+                    articleData = data.article_data;
+                    prepareChart();
+
+                },
+                error:function(e){
+                    alert(e);
+                }
+            });
+            function prepareChart(){
+                var trace1 = {
+                    mode: 'lines',
+                    x: articleData,
+                    y: articleLabels,
+
+                };
+                var data = [ trace1 ];
+
+                var layout = {
+                  title:$('#stockpicker').val()
+                };
+
+                Plotly.newPlot('line_fig', data, layout);
+            };
+        });
+
+        //換標的的時候畫圖
+        $('#stockpicker').change(function(){
+
+            var endpoint = 'api/chart/data'
+            var articleData =  articleLabels = []
+
+            $.ajax({
+                method:"GET",
+                url:endpoint,
+                data:{
+                    user_picked: $('#stockpicker').val()
+                },
+                success:function(data){
+                    articleLabels = data.article_labels;
+                    articleData = data.article_data;
+                    prepareChart();
+
+                },
+                error:function(e){
+                    console.log(e);
+                }
+            });
+
+            function prepareChart(){
+                var trace1 = {
+                    mode: 'lines',
+                    x: articleData,
+                    y: articleLabels,
+
+                };
+                var data = [ trace1 ];
+
+                var layout = {
+                  title:$('#stockpicker').val()
+                };
+
+                Plotly.newPlot('line_fig', data, layout);
+            };
+        });
+    </script>
+
+{% endblock %}
+
+

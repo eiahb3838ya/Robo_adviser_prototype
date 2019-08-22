@@ -1,6 +1,7 @@
 import pandas as pd
 from rpy2.robjects import r, pandas2ri
 import warnings
+from django.conf import settings
 
 
 def main( equityList, Ret):
@@ -9,7 +10,10 @@ def main( equityList, Ret):
     print("we are in portfolio {}".format(PORTFOLIO_NAME))
 
     # init parameter
-    WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+    BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+    WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
+    # WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+
     # activate rpy2 function
     pandas2ri.activate()
     # call r file
@@ -39,6 +43,7 @@ def main( equityList, Ret):
     RL_Ret = returnAll[2]
 
     data_dict = {
+        "Equity_All_df": Equity_All_df,
         "RL_Corr": RL_Corr,
         "RL_Wt": RL_Wt,
         "RL_Ret": RL_Ret

@@ -68,11 +68,24 @@ def singleStrategyForm(request):
     }
     return(render(request, "singleStrategyForm.html",context))
 
+
+def multiStrategyForm(request):
+
+    _, stock_list = get_stock_list()
+    strategy_list = ["macd" , "rsi", 'bb', 'ma']
+    portfolio_list = ["Markowitz", "RiskParity","CVaR"]
+    stock_list = [strr+".TW" for strr in stock_list]
+    context = {
+        "stock_list":stock_list,
+        "strategy_list":strategy_list,
+        "portfolio_list": portfolio_list,
+    }
+    return(render(request, "multiStrategyForm.html",context))
+
 def form2(request):
     # strategyList = ["macd" , "rsi", 'bb', 'ma']
     _, stock_list = get_stock_list()
     strategyList = ["macd", "rsi", 'bb', 'ma']
-
     stockList = [strr + ".TW" for strr in stock_list][:10]
     context = {
         "stockList": stockList,

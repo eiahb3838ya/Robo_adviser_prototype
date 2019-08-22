@@ -1,6 +1,7 @@
 from rpy2 import robjects
 import time
 import pandas as pd
+from django.conf import settings
 from rpy2.robjects import r, pandas2ri
 try:
     from .data_generator import get_history_data
@@ -8,9 +9,12 @@ except:
     pass
 
 
-def main(selected_target, strategyName):
+def main(selected_target, strategyName ,return_history_data = False, history_data_df = None):
     STRATEGY_NAME = strategyName
-    WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
+    BASE_DIR_str = str(settings.BASE_DIR).replace("\\", "/")
+    WD = BASE_DIR_str + '/adviser/r_strategy/r_strategy2.0'
+    print(WD)
+    # WD = 'C:/Users/Evan/Desktop/xiqi/Robo_adviser_prototype/robo_adviser/adviser/r_strategy/r_strategy2.0'
 
     # activate rpy2 function
     pandas2ri.activate()
@@ -18,7 +22,7 @@ def main(selected_target, strategyName):
     r.options(warn=-1)
 
     # put in the chosen stock code in a naive (bad) way
-    StockCode = selected_target[:4]
+    StockCode = selected_target.split('.')[0]
     StartDate = ""
     EndDate = ""
 
@@ -29,10 +33,11 @@ def main(selected_target, strategyName):
     r("source('{}/strategy_{}.R', local = TRUE)".format(WD, STRATEGY_NAME.lower()))
 
     # "getting the history data"
-    print("getting the history data")
-    history_data_df = get_history_data(target='all')
-    history_data_df['Date'] = history_data_df.index
-    history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
+    if  history_data_df is None:
+        print("getting the history data")
+        history_data_df = get_history_data(target='all')
+        history_data_df['Date'] = history_data_df.index
+        history_data_df = history_data_df[["STOCK_CODE", "Date", "Close", "High", "Low", "Open", "Volume"]]
 
     startTransformTime = time.time()
     selected_data_df = history_data_df.loc[history_data_df['STOCK_CODE'] == StockCode, 'Close']
@@ -66,6 +71,7 @@ def main(selected_target, strategyName):
     # CumRet for plot
     targetCumRet_DT = getCumRet_DT(targetRet_DT)
 
+
     # transform to python DataFrame
     alldf = pandas2ri.ri2py_dataframe(alldf)
     targetRet = pandas2ri.ri2py_dataframe(targetRet_DT)
@@ -79,12 +85,14 @@ def main(selected_target, strategyName):
         "strategyRet":pd.DataFrame(alldf[['index','Equity']].rename(columns = {'Equity' : "{}_{}_Ret".format(strategyName, StockCode)}) )
 
     }
+    if return_history_data:
+        data_dict.update({"history_data_df": history_data_df})
     return(data_dict)
 #
 if __name__ == "__main__":
     from data_generator import get_history_data
 
-    print(main("2330.TW", "MACD")['strategyRet'])
+    print(main("2330.dddddddTW", "MACD")['strategyRet'])
 
     # return (data_dict['strategyRet'])
 
