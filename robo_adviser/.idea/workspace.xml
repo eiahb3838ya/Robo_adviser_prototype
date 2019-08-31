@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc375e2-47ba-4b67-ba65-74000a26cb50" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/apis/portfolio_chart_div.py" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/apis/portfolio_chart_div.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/portfilio/portfolio_MVaR_CVaR.py" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/portfilio/portfolio_MVaR_CVaR.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/portfilio/portfolio_Markowitz.py" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/portfilio/portfolio_Markowitz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/prop/INDEX" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/prop/INDEX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/s-3F2791C8/1785EEE1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/s-3F2791C8/3004F271" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/s-3F2791C8/386953C2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/s-3F2791C8/71378797" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/596565F8/sources/s-3F2791C8/9875A49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/shared/notebooks/paths" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rproj.user/shared/notebooks/paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/templates/portfolio_cvar_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/templates/portfolio_cvar_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/templates/portfolio_markowitz_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/templates/portfolio_markowitz_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adviser/templates/portfolio_riskparity_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/templates/portfolio_riskparity_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/adviser/r_strategy/r_strategy2.0/.Rhistory" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,18 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adviser/portfilio/portfolio_RiskParity.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adviser/apis/portfolio_chart_div.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -97,11 +72,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adviser/portfilio/portfolio_MVaR_CVaR.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="58">
               <caret line="83" column="28" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adviser/indicators_factory/strategyR.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="806">
+              <caret line="104" column="23" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="23" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -210,6 +197,12 @@
               <item name="robo_adviser" type="b2602c69:ProjectViewProjectNode" />
               <item name="robo_adviser" type="462c0819:PsiDirectoryNode" />
               <item name="adviser" type="462c0819:PsiDirectoryNode" />
+              <item name="indicators_factory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="robo_adviser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="robo_adviser" type="462c0819:PsiDirectoryNode" />
+              <item name="adviser" type="462c0819:PsiDirectoryNode" />
               <item name="portfilio" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -268,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.portfolio_MVaR_CVaR">
+  <component name="RunManager" selected="Python.manage">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="robo_adviser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -370,9 +363,9 @@
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24623115" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="0" weight="0.31393567" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.45482388" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32924962" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="2" visible="true" weight="0.6860643" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.6860643" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -414,16 +407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="15" column="8" selection-start-line="15" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adviser/indicators_factory/strategyR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1596">
-          <caret line="84" column="20" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -559,6 +542,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="83" column="28" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adviser/indicators_factory/strategyR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="104" column="23" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="23" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
